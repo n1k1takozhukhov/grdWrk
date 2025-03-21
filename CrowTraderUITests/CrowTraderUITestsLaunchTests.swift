@@ -1,13 +1,13 @@
 //
-//  grdWrkUITestsLaunchTests.swift
-//  grdWrkUITests
+//  CrowTraderUITestsLaunchTests.swift
+//  CrowTraderUITests
 //
-//  Created by Никита Кожухов on 21.03.2025.
+//  Created by Jiří Daniel Šuster on 25.10.2024.
 //
 
 import XCTest
 
-final class grdWrkUITestsLaunchTests: XCTestCase {
+final class CrowTraderUITestsLaunchTests: XCTestCase {
 
     override class var runsForEachTargetApplicationUIConfiguration: Bool {
         true
@@ -17,7 +17,6 @@ final class grdWrkUITestsLaunchTests: XCTestCase {
         continueAfterFailure = false
     }
 
-    @MainActor
     func testLaunch() throws {
         let app = XCUIApplication()
         app.launch()

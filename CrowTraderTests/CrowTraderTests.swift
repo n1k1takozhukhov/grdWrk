@@ -1,14 +1,14 @@
 //
-//  grdWrkTests.swift
-//  grdWrkTests
+//  CrowTraderTests.swift
+//  CrowTraderTests
 //
-//  Created by Никита Кожухов on 21.03.2025.
+//  Created by Jiří Daniel Šuster on 25.10.2024.
 //
 
 import XCTest
-@testable import grdWrk
+@testable import CrowTrader
 
-final class grdWrkTests: XCTestCase {
+final class CrowTraderTests: XCTestCase {
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.

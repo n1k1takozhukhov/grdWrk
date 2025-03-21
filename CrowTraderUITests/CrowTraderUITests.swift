@@ -1,13 +1,13 @@
 //
-//  grdWrkUITests.swift
-//  grdWrkUITests
+//  CrowTraderUITests.swift
+//  CrowTraderUITests
 //
-//  Created by Никита Кожухов on 21.03.2025.
+//  Created by Jiří Daniel Šuster on 25.10.2024.
 //
 
 import XCTest
 
-final class grdWrkUITests: XCTestCase {
+final class CrowTraderUITests: XCTestCase {
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
@@ -22,7 +22,6 @@ final class grdWrkUITests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    @MainActor
     func testExample() throws {
         // UI tests must launch the application that they test.
         let app = XCUIApplication()
@@ -31,7 +30,6 @@ final class grdWrkUITests: XCTestCase {
         // Use XCTAssert and related functions to verify your tests produce the correct results.
     }
 
-    @MainActor
     func testLaunchPerformance() throws {
         if #available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 7.0, *) {
             // This measures how long it takes to launch your application.
