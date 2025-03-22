@@ -2,12 +2,18 @@ import SwiftUI
 
 struct ContentView: View {
     
-    @ObservedObject var viewModel: 
+    @ObservedObject var viewModel: MainScreenViewModel
     
     var body: some View {
         VStack {
-            Text("Message text")
-
+            TextField("message text", text: $viewModel.messageText)
+            DatePicker("Datw", selection: $viewModel.datePicker)
+            
+            Button("Send") {
+                viewModel.fetchData()
+            }
+            
+            Text(viewModel.temperature)
         }
         .padding()
         .ignoresSafeArea()
