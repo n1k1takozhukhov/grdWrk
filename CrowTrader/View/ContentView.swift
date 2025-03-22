@@ -1,13 +1,9 @@
-//
-//  ContentView.swift
-//  CrowTrader
-//
-//  Created by Jiří Daniel Šuster on 25.10.2024.
-//
-
 import SwiftUI
 
 struct ContentView: View {
+    
+    @ObservedObject var viewModel: 
+    
     var body: some View {
         VStack {
             Text("Message text")

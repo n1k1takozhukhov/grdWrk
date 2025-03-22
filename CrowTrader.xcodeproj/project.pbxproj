@@ -22,6 +22,11 @@
 		71A6BDD42CCC05F0008BB9C2 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A6BDD32CCC05F0008BB9C2 /* AppCoordinator.swift */; };
 		71A6BDD82CCC09AA008BB9C2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A6BDD72CCC09AA008BB9C2 /* AppDelegate.swift */; };
 		71A6BDDA2CCC09B5008BB9C2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A6BDD92CCC09B5008BB9C2 /* SceneDelegate.swift */; };
+		8D00021B2D8DAE9300CD0D39 /* MainScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D00021A2D8DAE9300CD0D39 /* MainScreenViewModel.swift */; };
+		8D00021D2D8DB7B500CD0D39 /* APIManaging.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D00021C2D8DB7B500CD0D39 /* APIManaging.swift */; };
+		8D00021F2D8DB82800CD0D39 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D00021E2D8DB82800CD0D39 /* Endpoint.swift */; };
+		8D0002212D8E94F500CD0D39 /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D0002202D8E94F500CD0D39 /* APIError.swift */; };
+		8D0002232D8E95E400CD0D39 /* StockDataRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D0002222D8E95E400CD0D39 /* StockDataRouter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,7 +78,12 @@
 		71A6BDD32CCC05F0008BB9C2 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		71A6BDD72CCC09AA008BB9C2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		71A6BDD92CCC09B5008BB9C2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		71A6BDDB2CCC1112008BB9C2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		71A6BDDB2CCC1112008BB9C2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8D00021A2D8DAE9300CD0D39 /* MainScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenViewModel.swift; sourceTree = "<group>"; };
+		8D00021C2D8DB7B500CD0D39 /* APIManaging.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManaging.swift; sourceTree = "<group>"; };
+		8D00021E2D8DB82800CD0D39 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
+		8D0002202D8E94F500CD0D39 /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
+		8D0002222D8E95E400CD0D39 /* StockDataRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockDataRouter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,15 +134,15 @@
 		71A6BD632CCBFDA7008BB9C2 /* CrowTrader */ = {
 			isa = PBXGroup;
 			children = (
-				71A6BDDB2CCC1112008BB9C2 /* Info.plist */,
-				71A6BD6A2CCBFDA8008BB9C2 /* Preview Content */,
-				71A6BDD62CCC0949008BB9C2 /* Services */,
+				71A6BDD62CCC0949008BB9C2 /* Networking */,
 				71A6BDD52CCC0916008BB9C2 /* Application */,
 				71A6BDC02CCBFE22008BB9C2 /* Coordinator */,
 				71A6BDC72CCC02D9008BB9C2 /* DependencyInjection */,
-				71A6BD662CCBFDA7008BB9C2 /* ContentView.swift */,
+				8D0002192D8DAE6E00CD0D39 /* ViewModel */,
+				8D0002182D8DAE5400CD0D39 /* View */,
 				71A6BDCD2CCC0395008BB9C2 /* Model */,
 				71A6BDD02CCC04CA008BB9C2 /* Protocols */,
+				71A6BD6A2CCBFDA8008BB9C2 /* Preview Content */,
 			);
 			path = CrowTrader;
 			sourceTree = "<group>";
@@ -140,6 +150,8 @@
 		71A6BD6A2CCBFDA8008BB9C2 /* Preview Content */ = {
 			isa = PBXGroup;
 			children = (
+				71A6BDDB2CCC1112008BB9C2 /* Info.plist */,
+				71A6BD682CCBFDA8008BB9C2 /* Assets.xcassets */,
 				71A6BD6B2CCBFDA8008BB9C2 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
@@ -199,19 +211,38 @@
 		71A6BDD52CCC0916008BB9C2 /* Application */ = {
 			isa = PBXGroup;
 			children = (
-				71A6BD682CCBFDA8008BB9C2 /* Assets.xcassets */,
 				71A6BDD72CCC09AA008BB9C2 /* AppDelegate.swift */,
 				71A6BDD92CCC09B5008BB9C2 /* SceneDelegate.swift */,
 			);
 			path = Application;
 			sourceTree = "<group>";
 		};
-		71A6BDD62CCC0949008BB9C2 /* Services */ = {
+		71A6BDD62CCC0949008BB9C2 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				8D00021C2D8DB7B500CD0D39 /* APIManaging.swift */,
+				8D00021E2D8DB82800CD0D39 /* Endpoint.swift */,
+				8D0002202D8E94F500CD0D39 /* APIError.swift */,
+				8D0002222D8E95E400CD0D39 /* StockDataRouter.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		8D0002182D8DAE5400CD0D39 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				71A6BD662CCBFDA7008BB9C2 /* ContentView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		8D0002192D8DAE6E00CD0D39 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
 				71A6BDC32CCBFEB2008BB9C2 /* WatchConnector.swift */,
+				8D00021A2D8DAE9300CD0D39 /* MainScreenViewModel.swift */,
 			);
-			path = Services;
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -345,16 +376,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8D0002232D8E95E400CD0D39 /* StockDataRouter.swift in Sources */,
 				71A6BDD22CCC04DA008BB9C2 /* Coordinator.swift in Sources */,
+				8D00021B2D8DAE9300CD0D39 /* MainScreenViewModel.swift in Sources */,
 				71A6BDCC2CCC038E008BB9C2 /* CrowTrader.xcdatamodeld in Sources */,
+				8D00021F2D8DB82800CD0D39 /* Endpoint.swift in Sources */,
 				71A6BD672CCBFDA7008BB9C2 /* ContentView.swift in Sources */,
 				71A6BDD82CCC09AA008BB9C2 /* AppDelegate.swift in Sources */,
 				71A6BDC42CCBFEB2008BB9C2 /* WatchConnector.swift in Sources */,
 				71A6BDDA2CCC09B5008BB9C2 /* SceneDelegate.swift in Sources */,
 				71A6BDCF2CCC03B4008BB9C2 /* CoreDataController.swift in Sources */,
+				8D00021D2D8DB7B500CD0D39 /* APIManaging.swift in Sources */,
 				71A6BDC92CCC02F8008BB9C2 /* DIContainer.swift in Sources */,
 				71A6BDD42CCC05F0008BB9C2 /* AppCoordinator.swift in Sources */,
 				71A6BDC22CCBFE3A008BB9C2 /* CrowTraderCoordinator.swift in Sources */,
+				8D0002212D8E94F500CD0D39 /* APIError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

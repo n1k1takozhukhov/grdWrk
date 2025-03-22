@@ -1,10 +1,3 @@
-//
-//  CrowTraderTests.swift
-//  CrowTraderTests
-//
-//  Created by Jiří Daniel Šuster on 25.10.2024.
-//
-
 import XCTest
 @testable import CrowTrader
 

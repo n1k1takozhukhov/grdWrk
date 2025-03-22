@@ -1,10 +1,3 @@
-//
-//  SceneDelegate.swift
-//  CrowTrader
-//
-//  Created by Jiří Daniel Šuster on 25.10.2024.
-//
-
 import UIKit
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
