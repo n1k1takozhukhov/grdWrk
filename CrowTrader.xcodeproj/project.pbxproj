@@ -604,7 +604,7 @@
 				DEVELOPMENT_TEAM = V36RW5TG62;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = CrowTrader/Info.plist;
+				INFOPLIST_FILE = "CrowTrader/Preview Content/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = CrowTrader;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -636,7 +636,7 @@
 				DEVELOPMENT_TEAM = V36RW5TG62;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = CrowTrader/Info.plist;
+				INFOPLIST_FILE = "CrowTrader/Preview Content/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = CrowTrader;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
