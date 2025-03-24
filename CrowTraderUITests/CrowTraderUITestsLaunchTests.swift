@@ -1,10 +1,3 @@
-//
-//  CrowTraderUITestsLaunchTests.swift
-//  CrowTraderUITests
-//
-//  Created by Jiří Daniel Šuster on 25.10.2024.
-//
-
 import XCTest
 
 final class CrowTraderUITestsLaunchTests: XCTestCase {

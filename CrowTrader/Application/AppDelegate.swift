@@ -1,10 +1,3 @@
-//
-//  AppDelegate.swift
-//  CrowTrader
-//
-//  Created by Jiří Daniel Šuster on 25.10.2024.
-//
-
 import UIKit
 
 @UIApplicationMain
