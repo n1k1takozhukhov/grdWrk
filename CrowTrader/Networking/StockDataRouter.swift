@@ -12,8 +12,8 @@ enum StockDataRouter: Endpoint {
     
     var path: String {
         switch self {
-        case .cryptoPrice(symbol: let symbol):
-            return "/api/v1/crypto/price/\(symbol)"
+        case .cryptoPrice(let symbol):
+            return "/v8/finance/chart/\(symbol)"
         }
     }
     

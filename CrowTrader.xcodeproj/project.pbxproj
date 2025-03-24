@@ -14,7 +14,6 @@
 		71A6BD802CCBFDA8008BB9C2 /* CrowTraderUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A6BD7F2CCBFDA8008BB9C2 /* CrowTraderUITests.swift */; };
 		71A6BD822CCBFDA8008BB9C2 /* CrowTraderUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A6BD812CCBFDA8008BB9C2 /* CrowTraderUITestsLaunchTests.swift */; };
 		71A6BDC22CCBFE3A008BB9C2 /* CrowTraderCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A6BDC12CCBFE3A008BB9C2 /* CrowTraderCoordinator.swift */; };
-		71A6BDC42CCBFEB2008BB9C2 /* WatchConnector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A6BDC32CCBFEB2008BB9C2 /* WatchConnector.swift */; };
 		71A6BDC92CCC02F8008BB9C2 /* DIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A6BDC82CCC02F8008BB9C2 /* DIContainer.swift */; };
 		71A6BDCC2CCC038E008BB9C2 /* CrowTrader.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 71A6BDCA2CCC038E008BB9C2 /* CrowTrader.xcdatamodeld */; };
 		71A6BDCF2CCC03B4008BB9C2 /* CoreDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A6BDCE2CCC03B4008BB9C2 /* CoreDataController.swift */; };
@@ -83,7 +82,6 @@
 		71A6BD7F2CCBFDA8008BB9C2 /* CrowTraderUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrowTraderUITests.swift; sourceTree = "<group>"; };
 		71A6BD812CCBFDA8008BB9C2 /* CrowTraderUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrowTraderUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		71A6BDC12CCBFE3A008BB9C2 /* CrowTraderCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrowTraderCoordinator.swift; sourceTree = "<group>"; };
-		71A6BDC32CCBFEB2008BB9C2 /* WatchConnector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchConnector.swift; sourceTree = "<group>"; };
 		71A6BDC82CCC02F8008BB9C2 /* DIContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DIContainer.swift; sourceTree = "<group>"; };
 		71A6BDCB2CCC038E008BB9C2 /* CrowTrader.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CrowTrader.xcdatamodel; sourceTree = "<group>"; };
 		71A6BDCE2CCC03B4008BB9C2 /* CoreDataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataController.swift; sourceTree = "<group>"; };
@@ -278,7 +276,6 @@
 		8D0002192D8DAE6E00CD0D39 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				71A6BDC32CCBFEB2008BB9C2 /* WatchConnector.swift */,
 				8D00021A2D8DAE9300CD0D39 /* MainScreenViewModel.swift */,
 			);
 			path = ViewModel;
@@ -349,7 +346,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1540;
-				LastUpgradeCheck = 1540;
+				LastUpgradeCheck = 1610;
 				TargetAttributes = {
 					71A6BD602CCBFDA7008BB9C2 = {
 						CreatedOnToolsVersion = 15.4;
@@ -429,7 +426,6 @@
 				8DB5BF942D8EB852007EBFA2 /* NewsListViewEventHandling.swift in Sources */,
 				71A6BDD82CCC09AA008BB9C2 /* AppDelegate.swift in Sources */,
 				8DB5BF8C2D8EB442007EBFA2 /* StockData.swift in Sources */,
-				71A6BDC42CCBFEB2008BB9C2 /* WatchConnector.swift in Sources */,
 				8DB5BF982D8F5911007EBFA2 /* StockPreview.swift in Sources */,
 				8DB5BFA02D8F5F03007EBFA2 /* WatchListView.swift in Sources */,
 				8DB5BF922D8EB7A6007EBFA2 /* NewsListView.swift in Sources */,
@@ -513,6 +509,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -574,6 +571,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
