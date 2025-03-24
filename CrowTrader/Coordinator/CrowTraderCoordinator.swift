@@ -92,19 +92,17 @@ extension CrowTraderCoordinator: TabControllerEventHandling {
     }
 }
 
-extension CrowTraderCoordinator: MainViewEventHeadling {
+extension CrowTraderCoordinator: MainViewEventHandling {
     func handle(event: MainScreenViewModel.Event) {
         switch event {
         case let .detailNews(newsItem):
-            let viewControlelr = makeNewsDetailView(newsItem: newsItem)
-            navigationController.present(viewControlelr, animated: true)
-        case let .detailStockPreview(stockPreviewItem):
-            let viewController = makeStockDetailView(stockItem: stockPreviewItem)
+            let viewController = makeNewsDetailView(newsItem: newsItem)
+            navigationController.present(viewController, animated: true)
+        case let .detailStockPreview(stockItem):
+            let viewController = makeStockDetailView(stockItem: stockItem)
             navigationController.present(viewController, animated: true)
         }
-    }
-}
-
+    }}
 
 extension CrowTraderCoordinator: NewsDetailViewEventHandling {
     func handle(event: NewsDetailView.Event) {
@@ -115,7 +113,6 @@ extension CrowTraderCoordinator: NewsDetailViewEventHandling {
     }
 }
 
-
 extension CrowTraderCoordinator: NewsListViewEventHandling {
     func handle(event: NewsListView.Event) {
         switch event {
@@ -124,4 +121,3 @@ extension CrowTraderCoordinator: NewsListViewEventHandling {
         }
     }
 }
-

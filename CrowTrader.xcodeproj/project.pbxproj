@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		71A6BD672CCBFDA7008BB9C2 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A6BD662CCBFDA7008BB9C2 /* ContentView.swift */; };
 		71A6BD692CCBFDA8008BB9C2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 71A6BD682CCBFDA8008BB9C2 /* Assets.xcassets */; };
 		71A6BD6C2CCBFDA8008BB9C2 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 71A6BD6B2CCBFDA8008BB9C2 /* Preview Assets.xcassets */; };
 		71A6BD762CCBFDA8008BB9C2 /* CrowTraderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A6BD752CCBFDA8008BB9C2 /* CrowTraderTests.swift */; };
@@ -73,7 +72,6 @@
 
 /* Begin PBXFileReference section */
 		71A6BD612CCBFDA7008BB9C2 /* CrowTrader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CrowTrader.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		71A6BD662CCBFDA7008BB9C2 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		71A6BD682CCBFDA8008BB9C2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		71A6BD6B2CCBFDA8008BB9C2 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		71A6BD712CCBFDA8008BB9C2 /* CrowTraderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CrowTraderTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -256,7 +254,6 @@
 		8D0002182D8DAE5400CD0D39 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				71A6BD662CCBFDA7008BB9C2 /* ContentView.swift */,
 				8D0002242D8E9E5A00CD0D39 /* MainPageView.swift */,
 				8D0002262D8E9F1800CD0D39 /* MainViewEventHeadling.swift */,
 				8DB5BF8D2D8EB5BE007EBFA2 /* NewsDetailView.swift */,
@@ -422,7 +419,6 @@
 				8D00021B2D8DAE9300CD0D39 /* MainScreenViewModel.swift in Sources */,
 				71A6BDCC2CCC038E008BB9C2 /* CrowTrader.xcdatamodeld in Sources */,
 				8D00021F2D8DB82800CD0D39 /* Endpoint.swift in Sources */,
-				71A6BD672CCBFDA7008BB9C2 /* ContentView.swift in Sources */,
 				8DB5BF942D8EB852007EBFA2 /* NewsListViewEventHandling.swift in Sources */,
 				71A6BDD82CCC09AA008BB9C2 /* AppDelegate.swift in Sources */,
 				8DB5BF8C2D8EB442007EBFA2 /* StockData.swift in Sources */,

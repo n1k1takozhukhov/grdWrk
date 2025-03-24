@@ -7,6 +7,6 @@
 
 import Foundation
 
-protocol MainViewEventHeadling: AnyObject {
+protocol MainViewEventHandling: AnyObject {
     func handle(event: MainScreenViewModel.Event)
 }
