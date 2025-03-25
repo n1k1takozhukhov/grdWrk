@@ -11,10 +11,7 @@ protocol Endpoint {
 }
 
 extension Endpoint {
-    var host: String {
-        "https://query2.finance.yahoo.com"
-    }
-
+    
     var method: String {
         "GET"
     }
@@ -26,11 +23,11 @@ extension Endpoint {
     func asURLRequest() throws -> URLRequest {
 
         guard let url = URL(string: host) else {
-            throw APIError.urlRequestFailed
+            throw APIError.urlRequestError
         }
 
         guard var urlComponents = URLComponents(url: url.appendingPathComponent(path), resolvingAgainstBaseURL: true) else {
-            throw APIError.urlRequestFailed
+            throw APIError.urlRequestError
         }
 
         if !urlParameters.isEmpty {
@@ -40,7 +37,7 @@ extension Endpoint {
         }
 
         guard let url = urlComponents.url else {
-            throw APIError.urlRequestFailed
+            throw APIError.urlRequestError
         }
 
         var request = URLRequest(url: url)

@@ -1,11 +1,5 @@
-//
-//  ChartData.swift
-//  CrowTrader
-//
-//  Created by Никита Кожухов on 24.03.2025.
-//
-
 import Foundation
+import SwiftUI
 
 struct ChartPoint: Identifiable {
     let id = UUID()
@@ -46,6 +40,9 @@ struct Quote: Codable {
 }
 struct MetaQuote: Codable {
     let symbol: String
+    let shortName: String
+    let regularMarketPrice: Double
+    let regularMarketVolume: Double
 }
 
 
@@ -76,6 +73,10 @@ extension ChartData {
 
 extension ChartData{
     //computed for easier access
+    var name: String {
+        chart.result[0].meta.shortName
+        }
+    
     var symbol: String {
         chart.result[0].meta.symbol
         }
@@ -103,4 +104,61 @@ extension ChartData{
     var volume: [Int?]? {
         chart.result[0].indicators.quote[0].volume
         }
+    var latestPrice: Double? {
+        chart.result[0].meta.regularMarketPrice
+    }
+    
+    var latestVolume: Double? {
+        chart.result[0].meta.regularMarketVolume
+    }
+    
+
+    var percentChange24Hours: Double? {
+        
+        guard let timestamps = timestamp, !timestamps.isEmpty else {
+            print("timestamps is nil or empty")
+            return nil
+        }
+
+        guard let closes = close, !closes.isEmpty else {
+            print("closes is nil or empty")
+            return nil
+        }
+
+        guard timestamps.count == closes.count else {
+            print("timestamps and closes count do not match")
+            return nil
+        }
+
+        guard let latestTimestamp = timestamps.compactMap({$0}).last else {
+            print("timestamps.last is nil")
+            return nil
+        }
+
+        guard let latestClose = closes.compactMap({ $0 }).last else {
+            print("No non-nil values in closes")
+            return nil
+        }
+
+        
+        let latestDate = Date(timeIntervalSince1970: TimeInterval(latestTimestamp))
+        let twentyFourHoursAgo = latestDate.addingTimeInterval(-86400)
+        let fromTimestamp = Int(twentyFourHoursAgo.timeIntervalSince1970)
+        
+        let startIndex = timestamps.firstIndex(where: { $0 >= fromTimestamp }) ?? 0
+        
+        guard startIndex < closes.count,
+              let startClose = closes[startIndex] else {
+            debugPrint(2)
+            return nil
+        }
+        
+        guard startClose != 0 else {
+            debugPrint(3)
+            return nil
+        }
+        
+        let percentageChange = ((latestClose - startClose) / startClose) * 100
+        return (percentageChange * 100).rounded() / 100
+    }
 }
