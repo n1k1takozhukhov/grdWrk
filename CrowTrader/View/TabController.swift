@@ -28,7 +28,7 @@ struct TabController: View {
                     Label("Home", systemImage: "house")
                 }.tag(1)
             
-            WatchListView()
+            WatchListView(viewModel: viewModel)
                 .tabItem {
                     Label("WatchList", systemImage: "eye")
                 }.tag(2)
@@ -40,7 +40,7 @@ struct TabController: View {
                 .tabItem {
                     Label("News", systemImage: "book")
                 }.tag(4)
-        }
+        }.tint(.green)
         
         .toolbar {
             ToolbarItem(placement: .principal) {

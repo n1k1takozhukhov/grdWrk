@@ -27,7 +27,7 @@ final class CrowTraderCoordinator{
         apiManager: container.apiManager,
         snapsService: container.snapsService
     )
-
+    
     
     init(navigationController: UINavigationController, container: DIContainer) {
         self.container = container
@@ -61,8 +61,8 @@ private extension CrowTraderCoordinator {
 private extension CrowTraderCoordinator {
     func makeStockDetailView(stockItem: StockItem) -> UIViewController {
         let view = StockPreview(
-            viewModel: self.stockPreviewViewModel,
-            coordinator: self
+            stock: stockItem,
+            viewModel: self.stockPreviewViewModel
         )
         return UIHostingController(rootView: view)
     }
@@ -143,5 +143,15 @@ extension CrowTraderCoordinator: NewsListViewEventHandling {
         case .close:
             navigationController.topViewController?.dismiss(animated: true)
         }
+    }
+}
+
+
+extension CrowTraderCoordinator: SnapsListViewEventHandling {
+    func handle(event: SnapsViewModel.SnapsEvent) {
+        /*switch event{ //TODO: add events
+         case .addSampleData:
+         
+         }*/
     }
 }

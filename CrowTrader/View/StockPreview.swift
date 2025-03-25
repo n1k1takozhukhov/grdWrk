@@ -2,17 +2,18 @@ import SwiftUI
 
 struct StockPreview: View {
     @Environment(\.dismiss) private var dismiss
+    var stock: StockItem
     @StateObject var viewModel: StockPreviewViewModel
     @State private var price = ""
     
     @State private var selectedTimeframe: String = "1M"
     
     enum Event {
-            case close
-        }
+        case close
+    }
     weak var coordinator: StockPreviewEventHandling?
     
-
+    
     
     var body: some View {
         let latestPrice = viewModel.latestPrice
@@ -44,30 +45,20 @@ struct StockPreview: View {
                     .foregroundStyle(.gray)
                     .cornerRadius(15)
                     .padding(.top, 25)
-  
+                
                 Section{
                     HStack {
-                                        let timeframes = ["1W","1M", "3M", "6M", "1Y"]
-                                        ForEach(timeframes, id: \.self) { timeframe in
-                                            Button(action: {
-                                                selectedTimeframe = timeframe
-                                            }) {
-                                                Text(timeframe)
-                                                    .fontWeight(selectedTimeframe == timeframe ? .bold : .regular)
-                                                    .padding()
-                                                    .frame(width: 60, height: 40)
-                                                    .background(
-                                                        selectedTimeframe == timeframe ? Color.green : Color.gray.opacity(0.2)
-                                                    )
-                                                    .foregroundColor(
-                                                        selectedTimeframe == timeframe ? .white : .black
-                                                    )
-                                                    .cornerRadius(10)
-                                            }.padding(.horizontal,4)
-
-                                        }
-                                    }
-                                    .padding(.horizontal, 25)
+                        let timeframes = ["1W","1M", "3M", "6M", "1Y"]
+                        ForEach(timeframes, id: \.self) { timeframe in
+                            Button(action: {
+                                selectedTimeframe = timeframe
+                            }) {
+                                Text(timeframe)
+                            }.buttonStyle(.timeframe(isSelected: selectedTimeframe == timeframe))
+                            
+                        }
+                    }
+                    .padding(.horizontal, 25)
                 }
                 
                 Section{
@@ -75,8 +66,8 @@ struct StockPreview: View {
                         Text(viewModel.chartData?.symbol ?? "").font(.title)
                         Spacer()
                         VStack(alignment: .trailing){
-                            Text(String(format: "%.2f", latestPrice))
-                            Text("+ 3.2%")
+                            Text(String(format: "%.2f", latestPrice)).font(.title).fontWeight(.bold)
+                            Text("+ 3.2%").foregroundStyle(.red)
                         }
                     }.padding().background(.ultraThickMaterial)
                         .cornerRadius(16)
@@ -113,17 +104,17 @@ struct StockPreview: View {
                 
                 Section{
                     TextField("Enter price", text: $price)
-                                .keyboardType(.decimalPad)
-                                .padding(12) // Add padding inside the TextField
-                                .background(
-                                    RoundedRectangle(cornerRadius: 16)
-                                        .fill(Color(.systemGray6))
-                                )
-                                .overlay(
-                                    RoundedRectangle(cornerRadius: 16)
-                                        .stroke(Color.green, lineWidth: 2) // Green border
-                                )
-                                .shadow(color: Color.black.opacity(0.1), radius: 4, x: 2, y: 2)
+                        .keyboardType(.decimalPad)
+                        .padding(12)
+                        .background(
+                            RoundedRectangle(cornerRadius: 16)
+                                .fill(Color(.systemGray6))
+                        )
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 16)
+                                .stroke(Color.green, lineWidth: 2)
+                        )
+                        .shadow(color: Color.black.opacity(0.1), radius: 4, x: 2, y: 2)
                     
                     Button(action: {
                         //TODO
@@ -133,39 +124,38 @@ struct StockPreview: View {
                         
                     }
                     .background(.green)
-                        .foregroundStyle(.white)
-                        .cornerRadius(25)
+                    .foregroundStyle(.white)
+                    .cornerRadius(25)
                     
                     
                     
                 }
                 
             }.padding()
-                .navigationTitle("AAPL")
-                    .toolbar(){
-                        ToolbarItem(placement: .topBarLeading){
-                            Button(action: {
-                                dismiss()
-                            }){
-                                Text("Cancel").foregroundStyle(.green)
-                            }
-                        }
-                        ToolbarItem(placement: .topBarTrailing){
-                            Button(action: {
-                                //todo add to watchlist
-                                dismiss()
-                                
-                            }){
-                                Text("Watch").foregroundStyle(.green)
-                            }
-                        }
-                    }.onAppear(){
-                        Task{
-                            await viewModel.fetchChart(symbol: "aapl")
+                .navigationTitle(stock.title)
+                .toolbar(){
+                    ToolbarItem(placement: .topBarLeading){
+                        Button(action: {
+                            dismiss()
+                        }){
+                            Text("Cancel").foregroundStyle(.green)
                         }
                     }
+                    ToolbarItem(placement: .topBarTrailing){
+                        Button(action: {
+                            //todo add to watchlist
+                            dismiss()
+                            
+                        }){
+                            Text("Watch").foregroundStyle(.green)
+                        }
+                    }
+                }.onAppear(){
+                    Task{
+                        await viewModel.fetchChart(symbol: stock.title)
+                    }
+                }
         }
-
     }
+    
 }
-
