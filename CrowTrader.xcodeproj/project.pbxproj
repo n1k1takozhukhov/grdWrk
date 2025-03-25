@@ -45,6 +45,9 @@
 		8DB5BFAD2D91465D007EBFA2 /* SearchData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DB5BFAC2D91465D007EBFA2 /* SearchData.swift */; };
 		8DB5BFAF2D91466D007EBFA2 /* NewsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DB5BFAE2D91466D007EBFA2 /* NewsData.swift */; };
 		8DB5BFB12D91467C007EBFA2 /* MoversData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DB5BFB02D91467C007EBFA2 /* MoversData.swift */; };
+		8DB5BFB32D917A9D007EBFA2 /* StockPreviewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DB5BFB22D917A9D007EBFA2 /* StockPreviewViewModel.swift */; };
+		8DB5BFB52D9191B6007EBFA2 /* StockChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DB5BFB42D9191B6007EBFA2 /* StockChartView.swift */; };
+		8DB5BFB72D919672007EBFA2 /* NewsListSceenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DB5BFB62D919672007EBFA2 /* NewsListSceenViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -120,6 +123,9 @@
 		8DB5BFAC2D91465D007EBFA2 /* SearchData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchData.swift; sourceTree = "<group>"; };
 		8DB5BFAE2D91466D007EBFA2 /* NewsData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsData.swift; sourceTree = "<group>"; };
 		8DB5BFB02D91467C007EBFA2 /* MoversData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoversData.swift; sourceTree = "<group>"; };
+		8DB5BFB22D917A9D007EBFA2 /* StockPreviewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockPreviewViewModel.swift; sourceTree = "<group>"; };
+		8DB5BFB42D9191B6007EBFA2 /* StockChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockChartView.swift; sourceTree = "<group>"; };
+		8DB5BFB62D919672007EBFA2 /* NewsListSceenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsListSceenViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -287,6 +293,7 @@
 				8DB5BF992D8F5938007EBFA2 /* TabController.swift */,
 				8DB5BF9D2D8F5E54007EBFA2 /* TabControllerEventHandling.swift */,
 				8DB5BF9F2D8F5F03007EBFA2 /* WatchListView.swift */,
+				8DB5BFB42D9191B6007EBFA2 /* StockChartView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -295,6 +302,8 @@
 			isa = PBXGroup;
 			children = (
 				8D00021A2D8DAE9300CD0D39 /* MainScreenViewModel.swift */,
+				8DB5BFB62D919672007EBFA2 /* NewsListSceenViewModel.swift */,
+				8DB5BFB22D917A9D007EBFA2 /* StockPreviewViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -442,12 +451,14 @@
 				8DB5BFAD2D91465D007EBFA2 /* SearchData.swift in Sources */,
 				71A6BDCC2CCC038E008BB9C2 /* CrowTrader.xcdatamodeld in Sources */,
 				8DB5BFAB2D914647007EBFA2 /* InfoData.swift in Sources */,
+				8DB5BFB52D9191B6007EBFA2 /* StockChartView.swift in Sources */,
 				8D00021F2D8DB82800CD0D39 /* Endpoint.swift in Sources */,
 				8DB5BF942D8EB852007EBFA2 /* NewsListViewEventHandling.swift in Sources */,
 				71A6BDD82CCC09AA008BB9C2 /* AppDelegate.swift in Sources */,
 				8DB5BFB12D91467C007EBFA2 /* MoversData.swift in Sources */,
 				8DB5BF8C2D8EB442007EBFA2 /* StockData.swift in Sources */,
 				8DB5BF982D8F5911007EBFA2 /* StockPreview.swift in Sources */,
+				8DB5BFB32D917A9D007EBFA2 /* StockPreviewViewModel.swift in Sources */,
 				8DB5BFA02D8F5F03007EBFA2 /* WatchListView.swift in Sources */,
 				8DB5BF922D8EB7A6007EBFA2 /* NewsListView.swift in Sources */,
 				8DB5BFA72D91433E007EBFA2 /* MoversDataRouter.swift in Sources */,
@@ -462,6 +473,7 @@
 				8DB5BF8E2D8EB5BE007EBFA2 /* NewsDetailView.swift in Sources */,
 				71A6BDC22CCBFE3A008BB9C2 /* CrowTraderCoordinator.swift in Sources */,
 				8DB5BF902D8EB5FD007EBFA2 /* NewsDetailViewEventHandling.swift in Sources */,
+				8DB5BFB72D919672007EBFA2 /* NewsListSceenViewModel.swift in Sources */,
 				8D0002212D8E94F500CD0D39 /* APIError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

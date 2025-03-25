@@ -26,7 +26,7 @@ class MainScreenViewModel: ObservableObject{
             coordinator?.handle(event: .detailNews(newsItem))
         case .didTapStockPreview(let stockItem):
             coordinator?.handle(event: .detailStockPreview(stockItem))
-
+            
         }
     }
     
@@ -53,7 +53,7 @@ extension MainScreenViewModel {
 extension MainScreenViewModel{ //YAHOO
     @MainActor
     func fetchSearch(symbol: String) {
-
+        
         Task {
             do {
                 let searchData: SearchData = try await apiManager.request(
@@ -63,8 +63,8 @@ extension MainScreenViewModel{ //YAHOO
                 )
                 self.testSearch = searchData.quotes[0].symbol //example
                 print(self.testSearch)
-
-
+                
+                
             } catch {
                 print(error)
             }
@@ -72,70 +72,70 @@ extension MainScreenViewModel{ //YAHOO
     }
     
     @MainActor
-        func fetchChart(symbol: String) {
-            Task {
-                do {
-                    let chartData: ChartData = try await apiManager.request(
-                        StockDataRouter.chart(
-                            symbol: symbol
-                        )
+    func fetchChart(symbol: String) {
+        Task {
+            do {
+                let chartData: ChartData = try await apiManager.request(
+                    StockDataRouter.chart(
+                        symbol: symbol
                     )
-                    self.testChart = String(chartData.close?[0] ?? 0.0) //example first close price
-                    print(self.testChart)
-                } catch {
-                    print(error)
-                }
+                )
+                self.testChart = String(chartData.close?[0] ?? 0.0) //example first close price
+                print(self.testChart)
+            } catch {
+                print(error)
             }
         }
+    }
     
     @MainActor
-        func fetchInfo(symbol: String) {
-            Task {
-                do {
-                    let infoData: InfoData = try await apiManager.request(
-                        StockDataRouter.info(
-                            symbol: symbol
-                        )
+    func fetchInfo(symbol: String) {
+        Task {
+            do {
+                let infoData: InfoData = try await apiManager.request(
+                    StockDataRouter.info(
+                        symbol: symbol
                     )
-                    self.testInfo = infoData.longName ?? "?" //example
-                    print(self.testInfo)
-                } catch {
-                    print(error)
-                }
+                )
+                self.testInfo = infoData.longName ?? "?" //example
+                print(self.testInfo)
+            } catch {
+                print(error)
             }
         }
+    }
 }
 
 extension MainScreenViewModel{ //NEWS
     @MainActor
-        func fetchNews() {
-            Task {
-                do {
-                    let newsData: NewsData = try await apiManager.request(
-                        NewsDataRouter.search
-                    )
-                    self.testNews = newsData.Data[0].title //example title of first article
-                    print(self.testNews)
-                } catch {
-                    print(error)
-                }
+    func fetchNews() {
+        Task {
+            do {
+                let newsData: NewsData = try await apiManager.request(
+                    NewsDataRouter.search
+                )
+                self.testNews = newsData.Data[0].title //example title of first article
+                print(self.testNews)
+            } catch {
+                print(error)
             }
         }
+    }
 }
 
 extension MainScreenViewModel{ //MOVERS
     @MainActor
     func fetchMarketMovers(top: Int) {
-            Task {
-                do {
-                    let moversData: MoversData = try await apiManager.request(
-                        MoversDataRouter.search(top: top)
-                    )
-                    self.testMovers = String(moversData.gainers[0].percent_change) //example
-                    print(self.testMovers)
-                } catch {
-                    print(error)
-                }
+        Task {
+            do {
+                let moversData: MoversData = try await apiManager.request(
+                    MoversDataRouter.search(top: top)
+                )
+                self.testMovers = String(moversData.gainers[0].percent_change) //example
+                print(self.testMovers)
+            } catch {
+                print(error)
             }
         }
+    }
 }

@@ -8,5 +8,5 @@
 import Foundation
 
 protocol NewsListViewEventHandling: AnyObject {
-    func handle(event: NewsDetailView.Event)
+    func handle(event: NewsSceneViewModel.NewsListSceenViewModelEvent)
 }

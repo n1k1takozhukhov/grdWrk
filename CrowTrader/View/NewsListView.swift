@@ -11,69 +11,72 @@ struct NewsItem: Identifiable {
     var id = UUID()
     var title: String
     var description: String
-    var imageName: String
+    var imageUrl: String
 }
 
 struct NewsListView: View {
+    @StateObject var viewModel: NewsSceneViewModel
     
-    @StateObject var mainViewModel: MainScreenViewModel
     enum Event {
         case close
     }
     weak var coordinator: NewsListViewEventHandling?
-    
-    //meta data
-    
-    let newsItems: [NewsItem] = [
-        NewsItem(title: "Breaking News", description: "This is a description for the breaking news.", imageName: "newspaper"),
-        NewsItem(title: "Tech Update", description: "Latest advancements in technology.", imageName: "laptopcomputer"),
-        NewsItem(title: "Stock Market Update", description: "Today's stock market performance.", imageName: "chart.bar"),
-        NewsItem(title: "Weather Report", description: "A look at the weather forecast for the day.", imageName: "cloud.sun")
-    ]
-    
+
     var body: some View {
-        
         NavigationView {
             VStack(alignment: .leading) {
-                
                 Text("News")
                     .font(.title)
                     .fontWeight(.bold)
                     .foregroundColor(.primary)
                     .padding(.leading)
-                
-                List(newsItems) { ads in
+
+                List(viewModel.newsItems) { newsItem in
                     Button(action: {
-                        
-                    print("tap on NewsListView")
-                        mainViewModel.send(.didTapNewsItem(ads))
+                        viewModel.send(.didTapNewsItem(newsItem))
                     }) {
                         HStack {
-                            
-                            Image(systemName: ads.imageName)
-                                .resizable()
-                                .frame(width: 80, height: 80)
-                                .foregroundColor(.blue)
-                                .padding(.trailing, 20)
-                            
-                            
+                            AsyncImage(url: URL(string: newsItem.imageUrl)) { phase in
+                                switch phase {
+                                case .empty:
+                                    ProgressView()
+                                        .frame(width: 80, height: 80)
+                                case .success(let image):
+                                    image
+                                        .resizable()
+                                        .scaledToFill()
+                                        .frame(width: 80, height: 80)
+                                        .clipped()
+                                case .failure:
+                                    Image(systemName: "photo")
+                                        .resizable()
+                                        .scaledToFit()
+                                        .frame(width: 80, height: 80)
+                                        .foregroundColor(.gray)
+                                @unknown default:
+                                    EmptyView()
+                                }
+                            }
+                            .frame(width: 80, height: 80)
+                            .cornerRadius(8)
+                            .padding(.trailing, 20)
+
                             VStack(alignment: .leading) {
-                                
-                                Text(ads.title)
+                                Text(newsItem.title)
                                     .font(.headline)
-                                    .foregroundColor(.secondary)
-                                    
-                                Text(ads.description)
+                                    .foregroundColor(.primary)
+
+                                Text(newsItem.description)
                                     .font(.subheadline)
                                     .foregroundColor(.secondary)
                                     .lineLimit(1)
                             }
                         }
-                        //
                     }
                 }
             }
+        }.onAppear(){
+            viewModel.send(.refetchNews)
         }
     }
-    
 }

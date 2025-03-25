@@ -27,7 +27,7 @@ struct NewsDetailView: View {
                 
                 Divider()
                 
-                Image(uiImage: (UIImage(named: newsItem.imageName) ?? UIImage(named: "empty")) ?? UIImage())
+                Image(uiImage: (UIImage(named: newsItem.imageUrl) ?? UIImage(named: "empty")) ?? UIImage())
                     .resizable()
                     .scaledToFill()
                     .frame(height: 200)
