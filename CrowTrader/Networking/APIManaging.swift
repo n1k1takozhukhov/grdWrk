@@ -1,7 +1,5 @@
 import Foundation
 
-import Foundation
-
 protocol APIManaging {
     func request<T: Decodable>(_ endpoint: Endpoint) async throws -> T
 }
@@ -12,19 +10,21 @@ class APIManager: APIManaging {
 
         let request = try endpoint.asURLRequest()
         let (data, response) = try await URLSession.shared.data(for: request)
-        debugPrint("Finished request: \(response)")
+        debugPrint(request.url?.absoluteString ?? "")
+        //debugPrint("Finished request: \(response)")
         return try decode(data: data)
     }
 }
 
+// MARK: Helper methods
 private extension APIManager {
     func validateResponse(response: URLResponse) throws {
         guard let httpResponse = response as? HTTPURLResponse else {
-            throw APIError.urlSessionFailed
+            throw APIError.urlSessionError
         }
 
         guard 200..<300 ~= httpResponse.statusCode else {
-            throw APIError.urlSessionFailed
+            throw APIError.urlSessionError
         }
     }
 

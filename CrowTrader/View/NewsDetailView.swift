@@ -1,10 +1,3 @@
-//
-//  NewsDetailView.swift
-//  CrowTrader
-//
-//  Created by Никита Кожухов on 22.03.2025.
-//
-
 import SwiftUI
 
 struct NewsDetailView: View {
