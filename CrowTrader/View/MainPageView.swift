@@ -1,10 +1,3 @@
-//
-//  MainPageView.swift
-//  CrowTrader
-//
-//  Created by Никита Кожухов on 22.03.2025.
-//
-
 import SwiftUI
 import Charts
 
@@ -14,7 +7,6 @@ struct MainPageView: View {
     @State private var selectedTimeframe: String = "1M"
     @State private var selectedMarketIndex: Int = 0
     
-    @State var marketLogo = []
     
     @State var marketList = [
         StockItem(title: "S$P500", price: 175.32, percentChange: 2.1, ammount: 17),
@@ -77,17 +69,7 @@ struct MainPageView: View {
                                         selectedTimeframe = timeframe
                                     }) {
                                         Text(timeframe)
-                                            .fontWeight(selectedTimeframe == timeframe ? .bold : .regular)
-                                            .padding()
-                                            .frame(width: 60, height: 40)
-                                            .background(
-                                                selectedTimeframe == timeframe ? Color.green : Color.gray.opacity(0.2)
-                                            )
-                                            .foregroundColor(
-                                                selectedTimeframe == timeframe ? .white : .green
-                                            )
-                                            .cornerRadius(10)
-                                    }.padding(.horizontal,4)
+                                    }.buttonStyle(.timeframe(isSelected: selectedTimeframe == timeframe))
 
                                 }
                             }
