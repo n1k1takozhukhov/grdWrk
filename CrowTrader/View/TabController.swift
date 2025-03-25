@@ -11,6 +11,9 @@ struct TabController: View {
     
     @State private var selection = 1
     @StateObject var viewModel: MainScreenViewModel
+    @StateObject var newsListScreenViewModel: NewsSceneViewModel
+    @StateObject var snapsViewModel: SnapsViewModel
+    
     enum Event {
         case close
     }
@@ -29,11 +32,11 @@ struct TabController: View {
                 .tabItem {
                     Label("WatchList", systemImage: "eye")
                 }.tag(2)
-            SnapsListView()
+            SnapsListView(viewModel: snapsViewModel)
                 .tabItem {
                     Label("Snaps", systemImage: "chart.bar")
                 }.tag(3)
-            NewsListView(mainViewModel: viewModel)
+            NewsListView(viewModel: newsListScreenViewModel)
                 .tabItem {
                     Label("News", systemImage: "book")
                 }.tag(4)

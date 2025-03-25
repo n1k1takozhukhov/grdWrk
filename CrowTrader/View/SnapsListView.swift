@@ -8,11 +8,26 @@
 import SwiftUI
 
 struct SnapsListView: View {
+    @ObservedObject var viewModel: SnapsViewModel
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-    }
-}
-
-#Preview {
-    SnapsListView()
+            VStack {
+                if viewModel.stockItems.isEmpty {
+                    Text("No stock items available")
+                        .font(.headline)
+                        .foregroundColor(.gray)
+                } else {
+                    ScrollView {
+                        LazyVStack {
+                            ForEach(viewModel.stockItems) { stockItem in
+                                Text(stockItem.title)
+                                Divider()
+                            }
+                        }
+                    }
+                }
+            }
+            .navigationTitle("Stock Items")
+        }
+    
 }
