@@ -22,13 +22,12 @@ class MainScreenViewModel: ObservableObject{
     
     func send(_ action: Action) {
         switch action {
-        case .didTapNewsItem(let newsItem):
-            coordinator?.handle(event: .detailNews(newsItem))
         case .didTapStockPreview(let stockItem):
             coordinator?.handle(event: .detailStockPreview(stockItem))
-            
+
         }
     }
+    
     
     
 }
@@ -37,7 +36,6 @@ class MainScreenViewModel: ObservableObject{
 // MARK: Event
 extension MainScreenViewModel {
     enum Event {
-        case detailNews(NewsItem)
         case detailStockPreview(StockItem)
     }
 }
@@ -45,7 +43,7 @@ extension MainScreenViewModel {
 // MARK: Action
 extension MainScreenViewModel {
     enum Action {
-        case didTapNewsItem(NewsItem)
+        
         case didTapStockPreview(StockItem)
     }
 }

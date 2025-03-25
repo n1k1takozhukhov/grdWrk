@@ -11,6 +11,8 @@ struct StockPreview: View {
 
     
     var body: some View {
+        let latestPrice = viewModel.latestPrice
+        let average = viewModel.average
         let emptyChartData = ChartData(
             chart: ChartQuote(
                 result: [
@@ -26,7 +28,7 @@ struct StockPreview: View {
                                     volume: []
                                 )
                             ]
-                        )
+                        ),meta: MetaQuote(symbol: "")
                     )
                 ]
             )
@@ -40,10 +42,10 @@ struct StockPreview: View {
                 
                 Section{
                     HStack{
-                        Text("APPL").font(.title)
+                        Text(viewModel.chartData?.symbol ?? "").font(.title)
                         Spacer()
                         VStack(alignment: .trailing){
-                            Text("180$")
+                            Text(String(latestPrice))
                             Text("+ 3.2%")
                         }
                     }.padding().background(.yellow)
@@ -70,14 +72,14 @@ struct StockPreview: View {
                             Text("average 30d").font(.headline)
                             Spacer()
                             VStack(alignment: .trailing){
-                                Text("180$")
+                                Text(String(average.thirty))
                             }
                         }.padding(8)
                         HStack{
                             Text("average 60d").font(.headline)
                             Spacer()
                             VStack(alignment: .trailing){
-                                Text("180$")
+                                Text(String(average.sixty))
                             }
                         }.padding(8)
                         
@@ -134,7 +136,10 @@ struct StockPreview: View {
                     }
                 }
             }.onAppear(){
-                viewModel.fetchChart(symbol: "aapl")
+                Task{
+                    await viewModel.fetchChart(symbol: "aapl")
+                }
             }
     }
+    
 }

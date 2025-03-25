@@ -8,16 +8,10 @@
 import SwiftUI
 import Charts
 
-struct StockItem: Identifiable {
-    var id = UUID()
-    var title: String
-    var price: String
-}
-
 struct MainPageView: View {
     @StateObject var viewModel: MainScreenViewModel
     
-    var stockItem = StockItem(title: "remove this", price: "443")
+    var stockItem = StockItem(title: "remove this", price: 44, ammount: 10)
 
     var body: some View {
             

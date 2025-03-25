@@ -23,6 +23,11 @@ final class CrowTraderCoordinator{
         apiManager: container.apiManager
     )
     
+    private lazy var snapsViewModel = SnapsViewModel(
+        apiManager: container.apiManager,
+        snapsService: container.snapsService
+    )
+
     
     init(navigationController: UINavigationController, container: DIContainer) {
         self.container = container
@@ -46,7 +51,8 @@ private extension CrowTraderCoordinator {
     func makeTabView() -> UIViewController {
         let view = TabController(
             viewModel: self.mainScreenViewModel,
-            newsListScreenViewModel: self.newsListSceenViewModel
+            newsListScreenViewModel: self.newsListSceenViewModel,
+            snapsViewModel: self.snapsViewModel
         )
         return UIHostingController(rootView: view)
     }
@@ -102,18 +108,15 @@ extension CrowTraderCoordinator: TabControllerEventHandling {
         }
     }
 }
-
 extension CrowTraderCoordinator: MainViewEventHandling {
     func handle(event: MainScreenViewModel.Event) {
         switch event {
-        case let .detailNews(newsItem):
-            let viewController = makeNewsDetailView(newsItem: newsItem)
-            navigationController.present(viewController, animated: true)
         case let .detailStockPreview(stockItem):
             let viewController = makeStockDetailView(stockItem: stockItem)
             navigationController.present(viewController, animated: true)
         }
-    }}
+    }
+}
 
 extension CrowTraderCoordinator: NewsDetailViewEventHandling {
     func handle(event: NewsDetailView.Event) {
