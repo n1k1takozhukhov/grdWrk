@@ -16,9 +16,9 @@ struct NewsDetailView: View {
     
     var body: some View {
         ScrollView {
-            VStack(alignment: .leading, spacing: 15) {
+            VStack(alignment: .leading, spacing: 16) {
                 
-                //title
+                // Title
                 Text(newsItem.title)
                     .font(.title)
                     .fontWeight(.bold)
@@ -27,11 +27,28 @@ struct NewsDetailView: View {
                 
                 Divider()
                 
-                Image(uiImage: (UIImage(named: newsItem.imageUrl) ?? UIImage(named: "empty")) ?? UIImage())
-                    .resizable()
-                    .scaledToFill()
-                    .frame(height: 200)
-                    .cornerRadius(10)
+                AsyncImage(url: URL(string: newsItem.imageUrl)) { phase in
+                    switch phase {
+                    case .empty:
+                        ProgressView()
+                            .frame(height: 200)
+                            .cornerRadius(20)
+                    case .success(let image):
+                        image
+                            .resizable()
+                            .scaledToFill()
+                            .frame(height: 200)
+                            .cornerRadius(20)
+                    case .failure:
+                        Image("empty")
+                            .resizable()
+                            .scaledToFill()
+                            .frame(height: 200)
+                            .cornerRadius(20)
+                    @unknown default:
+                        EmptyView()
+                    }
+                }
                 
                 Divider()
                 
@@ -43,5 +60,4 @@ struct NewsDetailView: View {
             .padding()
         }
     }
-    
 }
