@@ -2,44 +2,28 @@ import SwiftUI
 
 struct StockPreview: View {
     @Environment(\.dismiss) private var dismiss
+    @StateObject var snapsViewModel: SnapsViewModel
     @StateObject var viewModel: StockPreviewViewModel
+    @StateObject var watchlistViewModel: WatchListViewModel
     @State private var price = ""
-    
-    @State private var selectedTimeframe: String = "1M"
-    
-    enum Event {
-            case close
-        }
+    @State private var selectedTimeframe: String = "1d"
     weak var coordinator: StockPreviewEventHandling?
     
-
+    private var isValidPrice: Bool {
+        if let priceValue = Double(price), priceValue > 0 {
+            return snapsViewModel.balance.moneyToInvest >= priceValue
+        }
+        return false
+    }
     
     var body: some View {
-        let latestPrice = viewModel.latestPrice
+        var stock = viewModel.stockItem ?? StockItem(symbol: "", title: "", price: 1, ammount: 1)
+        let latestPrice = viewModel.stockItem?.price ?? 0
         let average = viewModel.average
-        let emptyChartData = ChartData(
-            chart: ChartQuote(
-                result: [
-                    ChartResult(
-                        timestamp: [],
-                        indicators: Indicators(
-                            quote: [
-                                Quote(
-                                    close: [],
-                                    high: [],
-                                    open: [],
-                                    low: [],
-                                    volume: []
-                                )
-                            ]
-                        ),meta: MetaQuote(symbol: "")
-                    )
-                ]
-            )
-        )
+
         NavigationView{
             VStack{
-                StockChartView(data: viewModel.chartData ?? emptyChartData)
+                StockChartView(data: viewModel.chartData)
                     .frame(width: 370,height: 230)
                     .foregroundStyle(.gray)
                     .cornerRadius(15)
@@ -47,23 +31,14 @@ struct StockPreview: View {
   
                 Section{
                     HStack {
-                                        let timeframes = ["1W","1M", "3M", "6M", "1Y"]
+                                        let timeframes = ["1d", "3mo", "6mo", "1y"]
                                         ForEach(timeframes, id: \.self) { timeframe in
                                             Button(action: {
                                                 selectedTimeframe = timeframe
+                                                viewModel.send(.timeframeSelected(stock.symbol, selectedTimeframe))
                                             }) {
                                                 Text(timeframe)
-                                                    .fontWeight(selectedTimeframe == timeframe ? .bold : .regular)
-                                                    .padding()
-                                                    .frame(width: 60, height: 40)
-                                                    .background(
-                                                        selectedTimeframe == timeframe ? Color.green : Color.gray.opacity(0.2)
-                                                    )
-                                                    .foregroundColor(
-                                                        selectedTimeframe == timeframe ? .white : .black
-                                                    )
-                                                    .cornerRadius(10)
-                                            }.padding(.horizontal,4)
+                                            }.buttonStyle(.timeframe(isSelected: selectedTimeframe == timeframe))
 
                                         }
                                     }
@@ -72,11 +47,11 @@ struct StockPreview: View {
                 
                 Section{
                     HStack{
-                        Text(viewModel.chartData?.symbol ?? "").font(.title)
+                        Text(viewModel.stockItem?.symbol ?? "").font(.title)
                         Spacer()
                         VStack(alignment: .trailing){
-                            Text(String(format: "%.2f", latestPrice))
-                            Text("+ 3.2%")
+                            Text(String(format: "%.2f", latestPrice)).font(.title).fontWeight(.bold)
+                            Text(String(viewModel.stockItem?.percentChange ?? 0) + "%").foregroundStyle(viewModel.stockItem?.color ?? Color.white)
                         }
                     }.padding().background(.ultraThickMaterial)
                         .cornerRadius(16)
@@ -88,21 +63,21 @@ struct StockPreview: View {
                             Text("Volume").font(.headline)
                             Spacer()
                             VStack(alignment: .trailing){
-                                Text("180$")
+                                Text(String(viewModel.chartData.latestVolume ?? 0))
                             }
                         }.padding(8)
                         HStack{
                             Text("average 30d").font(.headline)
                             Spacer()
                             VStack(alignment: .trailing){
-                                Text(String(format: "%.2f", average.thirty))
+                                Text(String(format: "%.2f", average.thirty ?? "unknown"))
                             }
                         }.padding(8)
                         HStack{
                             Text("average 60d").font(.headline)
                             Spacer()
                             VStack(alignment: .trailing){
-                                Text(String(format: "%.2f", average.sixty))
+                                Text(String(format: "%.2f", average.sixty ?? "unknown"))
                             }
                         }.padding(8)
                         
@@ -114,34 +89,29 @@ struct StockPreview: View {
                 Section{
                     TextField("Enter price", text: $price)
                                 .keyboardType(.decimalPad)
-                                .padding(12) // Add padding inside the TextField
+                                .padding(12)
                                 .background(
                                     RoundedRectangle(cornerRadius: 16)
                                         .fill(Color(.systemGray6))
                                 )
                                 .overlay(
                                     RoundedRectangle(cornerRadius: 16)
-                                        .stroke(Color.green, lineWidth: 2) // Green border
+                                        .stroke(Color.green, lineWidth: 2)
                                 )
                                 .shadow(color: Color.black.opacity(0.1), radius: 4, x: 2, y: 2)
                     
                     Button(action: {
-                        //TODO
+                        viewModel.send(.addToSnapslistClick(stock,price))
+                        dismiss()
                     }){
                         Text("Buy")
-                            .frame(width: 370,height: 50,alignment: .center)
-                        
                     }
-                    .background(.green)
-                        .foregroundStyle(.white)
-                        .cornerRadius(25)
-                    
-                    
-                    
+                    .buttonStyle(.bottomButtonStyle)
+                    .disabled(!isValidPrice)
                 }
                 
             }.padding()
-                .navigationTitle("AAPL")
+                .navigationTitle(stock.title)
                     .toolbar(){
                         ToolbarItem(placement: .topBarLeading){
                             Button(action: {
@@ -152,17 +122,17 @@ struct StockPreview: View {
                         }
                         ToolbarItem(placement: .topBarTrailing){
                             Button(action: {
-                                //todo add to watchlist
-                                dismiss()
+                                if(watchlistViewModel.isInWatchlist(stock: stock)){
+                                    stock.is_watchlist = true
+                                }
+                                viewModel.send(.addToWatchlistClick(stock))
                                 
                             }){
-                                Text("Watch").foregroundStyle(.green)
+                                Text(watchlistViewModel.isInWatchlist(stock: stock) ? "Unwatch" : "Watch").foregroundStyle(.green)
                             }
                         }
                     }.onAppear(){
-                        Task{
-                            await viewModel.fetchChart(symbol: "aapl")
-                        }
+                        viewModel.send(.appear(stock.symbol))
                     }
         }
 

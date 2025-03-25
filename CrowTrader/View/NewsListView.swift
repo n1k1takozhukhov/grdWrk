@@ -1,10 +1,3 @@
-//
-//  NewsListView.swift
-//  CrowTrader
-//
-//  Created by Никита Кожухов on 22.03.2025.
-//
-
 import SwiftUI
 
 struct NewsItem: Identifiable {
@@ -15,7 +8,7 @@ struct NewsItem: Identifiable {
 }
 
 struct NewsListView: View {
-    @StateObject var viewModel: NewsSceneViewModel
+    @StateObject var viewModel: NewsScreenViewModel
     
     enum Event {
         case close
@@ -76,7 +69,14 @@ struct NewsListView: View {
                 }
             }
         }.onAppear(){
+            viewModel.isLoading = true
             viewModel.send(.refetchNews)
+            viewModel.isLoading = true
         }
+        .overlay {
+            if (viewModel.isLoading) {
+                LoadingView()
+            }}
+        
     }
 }

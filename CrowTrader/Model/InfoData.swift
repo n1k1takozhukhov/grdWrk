@@ -1,15 +1,7 @@
-//
-//  InfoData.swift
-//  CrowTrader
-//
-//  Created by Никита Кожухов on 24.03.2025.
-//
-
 import Foundation
 
 struct InfoData: Codable {
     let quoteType: QuoteType
-    
     
     //computed for easier access
     var market: String? {
