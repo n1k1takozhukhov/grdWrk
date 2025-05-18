@@ -19,7 +19,7 @@ final class AppCoordinator {
 extension AppCoordinator {
     func start(container: DIContainer) {
         let navigationController = UINavigationController()
-        let coordinator = CrowTraderCoordinator(navigationController: navigationController, container: container)
+        let coordinator = grdWrkCoordinator(navigationController: navigationController, container: container)
         childCoordinators.append(coordinator)
         rootCoordinator = coordinator
         window.rootViewController = navigationController

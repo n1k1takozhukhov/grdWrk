@@ -1,6 +1,6 @@
 import XCTest
 
-final class CrowTraderUITestsLaunchTests: XCTestCase {
+final class grdWrkUITestsLaunchTests: XCTestCase {
 
     override class var runsForEachTargetApplicationUIConfiguration: Bool {
         true

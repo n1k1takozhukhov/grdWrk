@@ -18,11 +18,11 @@
 		716E5BDA2D46BAA500206B82 /* BalanceItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716E5BD92D46BAA500206B82 /* BalanceItem.swift */; };
 		71A6BD692CCBFDA8008BB9C2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 71A6BD682CCBFDA8008BB9C2 /* Assets.xcassets */; };
 		71A6BD6C2CCBFDA8008BB9C2 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 71A6BD6B2CCBFDA8008BB9C2 /* Preview Assets.xcassets */; };
-		71A6BD762CCBFDA8008BB9C2 /* CrowTraderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A6BD752CCBFDA8008BB9C2 /* CrowTraderTests.swift */; };
-		71A6BD802CCBFDA8008BB9C2 /* CrowTraderUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A6BD7F2CCBFDA8008BB9C2 /* CrowTraderUITests.swift */; };
-		71A6BD822CCBFDA8008BB9C2 /* CrowTraderUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A6BD812CCBFDA8008BB9C2 /* CrowTraderUITestsLaunchTests.swift */; };
+		71A6BD762CCBFDA8008BB9C2 /* grdWrkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A6BD752CCBFDA8008BB9C2 /* grdWrkTests.swift */; };
+		71A6BD802CCBFDA8008BB9C2 /* grdWrkUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A6BD7F2CCBFDA8008BB9C2 /* grdWrkUITests.swift */; };
+		71A6BD822CCBFDA8008BB9C2 /* grdWrkUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A6BD812CCBFDA8008BB9C2 /* grdWrkUITestsLaunchTests.swift */; };
 		71A6BDC92CCC02F8008BB9C2 /* DIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A6BDC82CCC02F8008BB9C2 /* DIContainer.swift */; };
-		71A6BDCC2CCC038E008BB9C2 /* CrowTrader.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 71A6BDCA2CCC038E008BB9C2 /* CrowTrader.xcdatamodeld */; };
+		71A6BDCC2CCC038E008BB9C2 /* grdWrk.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 71A6BDCA2CCC038E008BB9C2 /* grdWrk.xcdatamodeld */; };
 		71A6BDCF2CCC03B4008BB9C2 /* CoreDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A6BDCE2CCC03B4008BB9C2 /* CoreDataController.swift */; };
 		71A6BDD22CCC04DA008BB9C2 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A6BDD12CCC04DA008BB9C2 /* Coordinator.swift */; };
 		71A6BDD82CCC09AA008BB9C2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A6BDD72CCC09AA008BB9C2 /* AppDelegate.swift */; };
@@ -45,7 +45,7 @@
 		71F33B332D2BE01200680699 /* TabControllerEventHandling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71F33B322D2BE01100680699 /* TabControllerEventHandling.swift */; };
 		71F33B352D2BE02400680699 /* WatchListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71F33B342D2BE02400680699 /* WatchListView.swift */; };
 		71F33B372D2BE0A900680699 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71F33B362D2BE0A900680699 /* AppCoordinator.swift */; };
-		71F33B392D2BE0BD00680699 /* CrowTraderCoordinator.swift  .swift in Sources */ = {isa = PBXBuildFile; fileRef = 71F33B382D2BE0BD00680699 /* CrowTraderCoordinator.swift  .swift */; };
+		71F33B392D2BE0BD00680699 /* grdWrkCoordinator.swift  .swift in Sources */ = {isa = PBXBuildFile; fileRef = 71F33B382D2BE0BD00680699 /* grdWrkCoordinator.swift  .swift */; };
 		71F33B402D2BE32700680699 /* ChartData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71F33B3F2D2BE32700680699 /* ChartData.swift */; };
 		71F33B422D2BE35E00680699 /* InfoData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71F33B412D2BE35E00680699 /* InfoData.swift */; };
 		71F33B442D2BE37400680699 /* SearchData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71F33B432D2BE37400680699 /* SearchData.swift */; };
@@ -99,16 +99,16 @@
 		713ACB7A2D43D1910085D8C9 /* WatchListEventHandling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchListEventHandling.swift; sourceTree = "<group>"; };
 		716E5BD72D46B9F300206B82 /* BalanceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BalanceService.swift; sourceTree = "<group>"; };
 		716E5BD92D46BAA500206B82 /* BalanceItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BalanceItem.swift; sourceTree = "<group>"; };
-		71A6BD612CCBFDA7008BB9C2 /* CrowTrader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CrowTrader.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		71A6BD612CCBFDA7008BB9C2 /* grdWrk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = grdWrk.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		71A6BD682CCBFDA8008BB9C2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		71A6BD6B2CCBFDA8008BB9C2 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		71A6BD712CCBFDA8008BB9C2 /* CrowTraderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CrowTraderTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		71A6BD752CCBFDA8008BB9C2 /* CrowTraderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrowTraderTests.swift; sourceTree = "<group>"; };
-		71A6BD7B2CCBFDA8008BB9C2 /* CrowTraderUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CrowTraderUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		71A6BD7F2CCBFDA8008BB9C2 /* CrowTraderUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrowTraderUITests.swift; sourceTree = "<group>"; };
-		71A6BD812CCBFDA8008BB9C2 /* CrowTraderUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrowTraderUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		71A6BD712CCBFDA8008BB9C2 /* grdWrkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = grdWrkTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		71A6BD752CCBFDA8008BB9C2 /* grdWrkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = grdWrkTests.swift; sourceTree = "<group>"; };
+		71A6BD7B2CCBFDA8008BB9C2 /* grdWrkUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = grdWrkUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		71A6BD7F2CCBFDA8008BB9C2 /* grdWrkUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = grdWrkUITests.swift; sourceTree = "<group>"; };
+		71A6BD812CCBFDA8008BB9C2 /* grdWrkUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = grdWrkUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		71A6BDC82CCC02F8008BB9C2 /* DIContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DIContainer.swift; sourceTree = "<group>"; };
-		71A6BDCB2CCC038E008BB9C2 /* CrowTrader.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CrowTrader.xcdatamodel; sourceTree = "<group>"; };
+		71A6BDCB2CCC038E008BB9C2 /* grdWrk.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = grdWrk.xcdatamodel; sourceTree = "<group>"; };
 		71A6BDCE2CCC03B4008BB9C2 /* CoreDataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataController.swift; sourceTree = "<group>"; };
 		71A6BDD12CCC04DA008BB9C2 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		71A6BDD72CCC09AA008BB9C2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -132,7 +132,7 @@
 		71F33B322D2BE01100680699 /* TabControllerEventHandling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabControllerEventHandling.swift; sourceTree = "<group>"; };
 		71F33B342D2BE02400680699 /* WatchListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchListView.swift; sourceTree = "<group>"; };
 		71F33B362D2BE0A900680699 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
-		71F33B382D2BE0BD00680699 /* CrowTraderCoordinator.swift  .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CrowTraderCoordinator.swift  .swift"; sourceTree = "<group>"; };
+		71F33B382D2BE0BD00680699 /* grdWrkCoordinator.swift  .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "grdWrkCoordinator.swift  .swift"; sourceTree = "<group>"; };
 		71F33B3F2D2BE32700680699 /* ChartData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartData.swift; sourceTree = "<group>"; };
 		71F33B412D2BE35E00680699 /* InfoData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoData.swift; sourceTree = "<group>"; };
 		71F33B432D2BE37400680699 /* SearchData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchData.swift; sourceTree = "<group>"; };
@@ -199,9 +199,9 @@
 		71A6BD582CCBFDA7008BB9C2 = {
 			isa = PBXGroup;
 			children = (
-				71A6BD632CCBFDA7008BB9C2 /* CrowTrader */,
-				71A6BD742CCBFDA8008BB9C2 /* CrowTraderTests */,
-				71A6BD7E2CCBFDA8008BB9C2 /* CrowTraderUITests */,
+				71A6BD632CCBFDA7008BB9C2 /* grdWrk */,
+				71A6BD742CCBFDA8008BB9C2 /* grdWrkTests */,
+				71A6BD7E2CCBFDA8008BB9C2 /* grdWrkUITests */,
 				71A6BD622CCBFDA7008BB9C2 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -209,14 +209,14 @@
 		71A6BD622CCBFDA7008BB9C2 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				71A6BD612CCBFDA7008BB9C2 /* CrowTrader.app */,
-				71A6BD712CCBFDA8008BB9C2 /* CrowTraderTests.xctest */,
-				71A6BD7B2CCBFDA8008BB9C2 /* CrowTraderUITests.xctest */,
+				71A6BD612CCBFDA7008BB9C2 /* grdWrk.app */,
+				71A6BD712CCBFDA8008BB9C2 /* grdWrkTests.xctest */,
+				71A6BD7B2CCBFDA8008BB9C2 /* grdWrkUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		71A6BD632CCBFDA7008BB9C2 /* CrowTrader */ = {
+		71A6BD632CCBFDA7008BB9C2 /* grdWrk */ = {
 			isa = PBXGroup;
 			children = (
 				71F33B1D2D2BDED600680699 /* View */,
@@ -231,7 +231,7 @@
 				71A6BDCD2CCC0395008BB9C2 /* Model */,
 				71A6BDD02CCC04CA008BB9C2 /* Protocols */,
 			);
-			path = CrowTrader;
+			path = grdWrk;
 			sourceTree = "<group>";
 		};
 		71A6BD6A2CCBFDA8008BB9C2 /* Preview Content */ = {
@@ -242,28 +242,28 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		71A6BD742CCBFDA8008BB9C2 /* CrowTraderTests */ = {
+		71A6BD742CCBFDA8008BB9C2 /* grdWrkTests */ = {
 			isa = PBXGroup;
 			children = (
-				71A6BD752CCBFDA8008BB9C2 /* CrowTraderTests.swift */,
+				71A6BD752CCBFDA8008BB9C2 /* grdWrkTests.swift */,
 			);
-			path = CrowTraderTests;
+			path = grdWrkTests;
 			sourceTree = "<group>";
 		};
-		71A6BD7E2CCBFDA8008BB9C2 /* CrowTraderUITests */ = {
+		71A6BD7E2CCBFDA8008BB9C2 /* grdWrkUITests */ = {
 			isa = PBXGroup;
 			children = (
-				71A6BD7F2CCBFDA8008BB9C2 /* CrowTraderUITests.swift */,
-				71A6BD812CCBFDA8008BB9C2 /* CrowTraderUITestsLaunchTests.swift */,
+				71A6BD7F2CCBFDA8008BB9C2 /* grdWrkUITests.swift */,
+				71A6BD812CCBFDA8008BB9C2 /* grdWrkUITestsLaunchTests.swift */,
 			);
-			path = CrowTraderUITests;
+			path = grdWrkUITests;
 			sourceTree = "<group>";
 		};
 		71A6BDC02CCBFE22008BB9C2 /* Coordinator */ = {
 			isa = PBXGroup;
 			children = (
 				71F33B362D2BE0A900680699 /* AppCoordinator.swift */,
-				71F33B382D2BE0BD00680699 /* CrowTraderCoordinator.swift  .swift */,
+				71F33B382D2BE0BD00680699 /* grdWrkCoordinator.swift  .swift */,
 			);
 			path = Coordinator;
 			sourceTree = "<group>";
@@ -279,7 +279,7 @@
 		71A6BDCD2CCC0395008BB9C2 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				71A6BDCA2CCC038E008BB9C2 /* CrowTrader.xcdatamodeld */,
+				71A6BDCA2CCC038E008BB9C2 /* grdWrk.xcdatamodeld */,
 				71A6BDCE2CCC03B4008BB9C2 /* CoreDataController.swift */,
 				71F33B3F2D2BE32700680699 /* ChartData.swift */,
 				71F33B412D2BE35E00680699 /* InfoData.swift */,
@@ -354,9 +354,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		71A6BD602CCBFDA7008BB9C2 /* CrowTrader */ = {
+		71A6BD602CCBFDA7008BB9C2 /* grdWrk */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 71A6BDB12CCBFDA9008BB9C2 /* Build configuration list for PBXNativeTarget "CrowTrader" */;
+			buildConfigurationList = 71A6BDB12CCBFDA9008BB9C2 /* Build configuration list for PBXNativeTarget "grdWrk" */;
 			buildPhases = (
 				71A6BD5D2CCBFDA7008BB9C2 /* Sources */,
 				71A6BD5E2CCBFDA7008BB9C2 /* Frameworks */,
@@ -367,14 +367,14 @@
 			);
 			dependencies = (
 			);
-			name = CrowTrader;
+			name = grdWrk;
 			productName = CrowTrader;
-			productReference = 71A6BD612CCBFDA7008BB9C2 /* CrowTrader.app */;
+			productReference = 71A6BD612CCBFDA7008BB9C2 /* grdWrk.app */;
 			productType = "com.apple.product-type.application";
 		};
-		71A6BD702CCBFDA8008BB9C2 /* CrowTraderTests */ = {
+		71A6BD702CCBFDA8008BB9C2 /* grdWrkTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 71A6BDB42CCBFDA9008BB9C2 /* Build configuration list for PBXNativeTarget "CrowTraderTests" */;
+			buildConfigurationList = 71A6BDB42CCBFDA9008BB9C2 /* Build configuration list for PBXNativeTarget "grdWrkTests" */;
 			buildPhases = (
 				71A6BD6D2CCBFDA8008BB9C2 /* Sources */,
 				71A6BD6E2CCBFDA8008BB9C2 /* Frameworks */,
@@ -385,14 +385,14 @@
 			dependencies = (
 				71A6BD732CCBFDA8008BB9C2 /* PBXTargetDependency */,
 			);
-			name = CrowTraderTests;
+			name = grdWrkTests;
 			productName = CrowTraderTests;
-			productReference = 71A6BD712CCBFDA8008BB9C2 /* CrowTraderTests.xctest */;
+			productReference = 71A6BD712CCBFDA8008BB9C2 /* grdWrkTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		71A6BD7A2CCBFDA8008BB9C2 /* CrowTraderUITests */ = {
+		71A6BD7A2CCBFDA8008BB9C2 /* grdWrkUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 71A6BDB72CCBFDA9008BB9C2 /* Build configuration list for PBXNativeTarget "CrowTraderUITests" */;
+			buildConfigurationList = 71A6BDB72CCBFDA9008BB9C2 /* Build configuration list for PBXNativeTarget "grdWrkUITests" */;
 			buildPhases = (
 				71A6BD772CCBFDA8008BB9C2 /* Sources */,
 				71A6BD782CCBFDA8008BB9C2 /* Frameworks */,
@@ -403,9 +403,9 @@
 			dependencies = (
 				71A6BD7D2CCBFDA8008BB9C2 /* PBXTargetDependency */,
 			);
-			name = CrowTraderUITests;
+			name = grdWrkUITests;
 			productName = CrowTraderUITests;
-			productReference = 71A6BD7B2CCBFDA8008BB9C2 /* CrowTraderUITests.xctest */;
+			productReference = 71A6BD7B2CCBFDA8008BB9C2 /* grdWrkUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -431,7 +431,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 71A6BD5C2CCBFDA7008BB9C2 /* Build configuration list for PBXProject "CrowTrader" */;
+			buildConfigurationList = 71A6BD5C2CCBFDA7008BB9C2 /* Build configuration list for PBXProject "grdWrk" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -444,9 +444,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				71A6BD602CCBFDA7008BB9C2 /* CrowTrader */,
-				71A6BD702CCBFDA8008BB9C2 /* CrowTraderTests */,
-				71A6BD7A2CCBFDA8008BB9C2 /* CrowTraderUITests */,
+				71A6BD602CCBFDA7008BB9C2 /* grdWrk */,
+				71A6BD702CCBFDA8008BB9C2 /* grdWrkTests */,
+				71A6BD7A2CCBFDA8008BB9C2 /* grdWrkUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -486,7 +486,7 @@
 				887828F52D457FB7008A99EB /* buttonStyles.swift in Sources */,
 				71F33B482D2BE43C00680699 /* MoversData.swift in Sources */,
 				71F33B2B2D2BDFC200680699 /* SnapsListView.swift in Sources */,
-				71A6BDCC2CCC038E008BB9C2 /* CrowTrader.xcdatamodeld in Sources */,
+				71A6BDCC2CCC038E008BB9C2 /* grdWrk.xcdatamodeld in Sources */,
 				71F33B212D2BDF4400680699 /* MainViewEventHandling.swift in Sources */,
 				7127522C2CCC1951003784DD /* Endpoint.swift in Sources */,
 				713ACB792D43CEC30085D8C9 /* WatchListViewModel.swift in Sources */,
@@ -509,7 +509,7 @@
 				71A6BDC92CCC02F8008BB9C2 /* DIContainer.swift in Sources */,
 				71F33B352D2BE02400680699 /* WatchListView.swift in Sources */,
 				71F33B402D2BE32700680699 /* ChartData.swift in Sources */,
-				71F33B392D2BE0BD00680699 /* CrowTraderCoordinator.swift  .swift in Sources */,
+				71F33B392D2BE0BD00680699 /* grdWrkCoordinator.swift  .swift in Sources */,
 				71DB70282D429C8D00E7B021 /* LoadingView.swift in Sources */,
 				7127522A2CCC1938003784DD /* APIManaging.swift in Sources */,
 				71F33B1F2D2BDF1900680699 /* MainPageView.swift in Sources */,
@@ -534,7 +534,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				71A6BD762CCBFDA8008BB9C2 /* CrowTraderTests.swift in Sources */,
+				71A6BD762CCBFDA8008BB9C2 /* grdWrkTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -542,8 +542,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				71A6BD802CCBFDA8008BB9C2 /* CrowTraderUITests.swift in Sources */,
-				71A6BD822CCBFDA8008BB9C2 /* CrowTraderUITestsLaunchTests.swift in Sources */,
+				71A6BD802CCBFDA8008BB9C2 /* grdWrkUITests.swift in Sources */,
+				71A6BD822CCBFDA8008BB9C2 /* grdWrkUITestsLaunchTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -552,12 +552,12 @@
 /* Begin PBXTargetDependency section */
 		71A6BD732CCBFDA8008BB9C2 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 71A6BD602CCBFDA7008BB9C2 /* CrowTrader */;
+			target = 71A6BD602CCBFDA7008BB9C2 /* grdWrk */;
 			targetProxy = 71A6BD722CCBFDA8008BB9C2 /* PBXContainerItemProxy */;
 		};
 		71A6BD7D2CCBFDA8008BB9C2 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 71A6BD602CCBFDA7008BB9C2 /* CrowTrader */;
+			target = 71A6BD602CCBFDA7008BB9C2 /* grdWrk */;
 			targetProxy = 71A6BD7C2CCBFDA8008BB9C2 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -684,12 +684,12 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"CrowTrader/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"grdWrk/Preview Content\"";
 				DEVELOPMENT_TEAM = V36RW5TG62;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = CrowTrader/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = CrowTrader;
+				INFOPLIST_FILE = grdWrk/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = grdWrk;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -700,7 +700,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = cz.mendelu.CrowTrader;
+				PRODUCT_BUNDLE_IDENTIFIER = grdWrk;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -716,12 +716,12 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"CrowTrader/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"grdWrk/Preview Content\"";
 				DEVELOPMENT_TEAM = V36RW5TG62;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = CrowTrader/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = CrowTrader;
+				INFOPLIST_FILE = grdWrk/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = grdWrk;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -732,7 +732,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = cz.mendelu.CrowTrader;
+				PRODUCT_BUNDLE_IDENTIFIER = grdWrk;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -758,7 +758,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CrowTrader.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/CrowTrader";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/grdWrk.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/grdWrk";
 			};
 			name = Debug;
 		};
@@ -778,7 +778,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CrowTrader.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/CrowTrader";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/grdWrk.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/grdWrk";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -825,7 +825,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		71A6BD5C2CCBFDA7008BB9C2 /* Build configuration list for PBXProject "CrowTrader" */ = {
+		71A6BD5C2CCBFDA7008BB9C2 /* Build configuration list for PBXProject "grdWrk" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				71A6BDAB2CCBFDA9008BB9C2 /* Debug */,
@@ -834,7 +834,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		71A6BDB12CCBFDA9008BB9C2 /* Build configuration list for PBXNativeTarget "CrowTrader" */ = {
+		71A6BDB12CCBFDA9008BB9C2 /* Build configuration list for PBXNativeTarget "grdWrk" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				71A6BDB22CCBFDA9008BB9C2 /* Debug */,
@@ -843,7 +843,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		71A6BDB42CCBFDA9008BB9C2 /* Build configuration list for PBXNativeTarget "CrowTraderTests" */ = {
+		71A6BDB42CCBFDA9008BB9C2 /* Build configuration list for PBXNativeTarget "grdWrkTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				71A6BDB52CCBFDA9008BB9C2 /* Debug */,
@@ -852,7 +852,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		71A6BDB72CCBFDA9008BB9C2 /* Build configuration list for PBXNativeTarget "CrowTraderUITests" */ = {
+		71A6BDB72CCBFDA9008BB9C2 /* Build configuration list for PBXNativeTarget "grdWrkUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				71A6BDB82CCBFDA9008BB9C2 /* Debug */,
@@ -864,13 +864,13 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		71A6BDCA2CCC038E008BB9C2 /* CrowTrader.xcdatamodeld */ = {
+		71A6BDCA2CCC038E008BB9C2 /* grdWrk.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				71A6BDCB2CCC038E008BB9C2 /* CrowTrader.xcdatamodel */,
+				71A6BDCB2CCC038E008BB9C2 /* grdWrk.xcdatamodel */,
 			);
-			currentVersion = 71A6BDCB2CCC038E008BB9C2 /* CrowTrader.xcdatamodel */;
-			path = CrowTrader.xcdatamodeld;
+			currentVersion = 71A6BDCB2CCC038E008BB9C2 /* grdWrk.xcdatamodel */;
+			path = grdWrk.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

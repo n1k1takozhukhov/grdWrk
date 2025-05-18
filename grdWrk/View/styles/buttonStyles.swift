@@ -24,10 +24,10 @@ struct TimeframeButtonStyle: ButtonStyle {
             .padding()
             .frame(width: 80, height: 40)
             .background(
-                isSelected ? Color.green : Color.gray.opacity(0.2)
+                isSelected ? Color.blue : Color.gray.opacity(0.2)
             )
             .foregroundColor(
-                isSelected ? .white : .green
+                isSelected ? .white : .blue
             )
             .cornerRadius(10)
             .opacity(configuration.isPressed ? 0.8 : 1)

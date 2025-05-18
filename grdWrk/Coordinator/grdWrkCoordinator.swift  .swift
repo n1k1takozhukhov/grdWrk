@@ -2,7 +2,7 @@ import Foundation
 import SwiftUI
 
 @MainActor
-final class CrowTraderCoordinator{
+final class grdWrkCoordinator {
     
     let container: DIContainer
     var childCoordinators: [Coordinator] = []
@@ -44,16 +44,16 @@ final class CrowTraderCoordinator{
     }
 }
 
-extension CrowTraderCoordinator: Coordinator {
+extension grdWrkCoordinator: Coordinator {
     func start() {
-        print("Starting CrowTraderCoordinator")
+        print("Starting Coordinator")
         let signInViewController = makeTabView()
         navigationController.setViewControllers([signInViewController], animated: true)
     }
 }
 
 // MARK: Factories
-private extension CrowTraderCoordinator {
+private extension grdWrkCoordinator {
     func makeTabView() -> UIViewController {
         let view = TabController(
             viewModel: self.mainScreenViewModel,
@@ -63,7 +63,7 @@ private extension CrowTraderCoordinator {
     }
 }
 
-private extension CrowTraderCoordinator {
+private extension grdWrkCoordinator {
     func makeStockDetailView() -> UIViewController {
         let view = StockPreview(
             snapsViewModel: self.snapsViewModel,
@@ -74,7 +74,7 @@ private extension CrowTraderCoordinator {
     }
 }
 
-private extension CrowTraderCoordinator {
+private extension grdWrkCoordinator {
     func makeNewsDetailView(newsItem: NewsItem) -> UIViewController {
         let view = NewsDetailView(
             coordinator: self, newsItem: newsItem
@@ -83,7 +83,7 @@ private extension CrowTraderCoordinator {
     }
 }
 
-private extension CrowTraderCoordinator {
+private extension grdWrkCoordinator {
     func makeNewsListView() -> UIViewController {
         let view = NewsListView(
             viewModel: self.newsListScreenViewModel, coordinator: self
@@ -95,7 +95,7 @@ private extension CrowTraderCoordinator {
 
 
 // MARK: Navigating
-extension CrowTraderCoordinator: StockPreviewEventHandling {
+extension grdWrkCoordinator: StockPreviewEventHandling {
     func handle(event: StockPreviewViewModel.Event) {
         switch event {
         case .close:
@@ -127,7 +127,7 @@ extension CrowTraderCoordinator: StockPreviewEventHandling {
     }
 }
 
-extension CrowTraderCoordinator: TabControllerEventHandling {
+extension grdWrkCoordinator: TabControllerEventHandling {
     func handle(event: TabController.Event) {
         switch event {
         case .close:
@@ -135,7 +135,7 @@ extension CrowTraderCoordinator: TabControllerEventHandling {
         }
     }
 }
-extension CrowTraderCoordinator: WatchListEventHandling {
+extension grdWrkCoordinator: WatchListEventHandling {
     func handle(event: WatchListViewModel.Event) {
         switch event{
             
@@ -151,7 +151,7 @@ extension CrowTraderCoordinator: WatchListEventHandling {
     }
 }
 
-extension CrowTraderCoordinator: MainViewEventHandling {
+extension grdWrkCoordinator: MainViewEventHandling {
     func handle(event: MainScreenViewModel.Event) {
         switch event {
         case let .detailStockPreview(stockItem):
@@ -178,7 +178,7 @@ extension CrowTraderCoordinator: MainViewEventHandling {
         }
     }}
 
-extension CrowTraderCoordinator: NewsDetailViewEventHandling {
+extension grdWrkCoordinator: NewsDetailViewEventHandling {
     func handle(event: NewsDetailView.Event) {
         switch event {
         case .close:
@@ -187,7 +187,7 @@ extension CrowTraderCoordinator: NewsDetailViewEventHandling {
     }
 }
 
-extension CrowTraderCoordinator: NewsListViewEventHandling {
+extension grdWrkCoordinator: NewsListViewEventHandling {
     func handle(event: NewsScreenViewModel.NewsListScreenEvent) {
         switch event {
         case let .detailNews(newsItem):
@@ -206,7 +206,7 @@ extension CrowTraderCoordinator: NewsListViewEventHandling {
     }
 }
 
-extension CrowTraderCoordinator: SnapsListViewEventHandling {
+extension grdWrkCoordinator: SnapsListViewEventHandling {
     func handle(event: SnapsViewModel.SnapsEvent) {
         switch event{
             

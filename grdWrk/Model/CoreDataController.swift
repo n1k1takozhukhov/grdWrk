@@ -2,7 +2,7 @@ import Foundation
 import CoreData
 
 class CoreDataController: ObservableObject{
-    let container = NSPersistentContainer(name: "CrowTrader")
+    let container = NSPersistentContainer(name: "grdWrk")
     
     init(){
         container.loadPersistentStores{ description, error in

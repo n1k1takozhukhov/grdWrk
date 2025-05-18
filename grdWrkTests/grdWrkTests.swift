@@ -1,7 +1,7 @@
 import XCTest
-@testable import CrowTrader
+@testable import grdWrk
 
-final class CrowTraderTests: XCTestCase {
+final class grdWrkTests: XCTestCase {
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
