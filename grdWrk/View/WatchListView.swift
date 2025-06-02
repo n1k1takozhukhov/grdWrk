@@ -12,7 +12,7 @@ struct WatchListView: View {
                 VStack{
                     
                     VStack{
-                        TextField("Search...", text: $searchText)
+                        TextField("Search....".localized, text: $searchText)
                             .padding(10)
                             .background(Color(.systemGray6))
                             .cornerRadius(8)
@@ -29,7 +29,7 @@ struct WatchListView: View {
                     
                     
                     HStack{
-                        Text("Watchlist").font(.title)
+                        Text("Watchlist".localized).font(.title)
                         Spacer()
                     }.padding(.top, 20)
                     

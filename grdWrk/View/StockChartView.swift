@@ -20,8 +20,8 @@ struct StockChartView: View {
             Chart {
                 ForEach(chartPoints) { point in
                     LineMark(
-                        x: .value("Date", point.date),
-                        y: .value("Price", point.price)
+                        x: .value("Date".localized, point.date),
+                        y: .value("Price".localized, point.price)
                     )
                     .interpolationMethod(.cardinal)
                     .foregroundStyle(
@@ -38,9 +38,9 @@ struct StockChartView: View {
                 }
                 
                 AreaMark(
-                    x: .value("Date", chartPoints.first?.date ?? Date()),
-                    yStart: .value("Min", priceRange.min),
-                    yEnd: .value("Price", chartPoints.first?.price ?? 0)
+                    x: .value("Date".localized, chartPoints.first?.date ?? Date()),
+                    yStart: .value("Min".localized, priceRange.min),
+                    yEnd: .value("Price".localized, chartPoints.first?.price ?? 0)
                 )
                 .foregroundStyle(
                     LinearGradient(

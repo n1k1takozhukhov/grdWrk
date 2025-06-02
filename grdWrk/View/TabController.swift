@@ -17,21 +17,30 @@ struct TabController: View {
         TabView(selection: $selection) {
             MainPageView(viewModel: viewModel)
                 .tabItem {
-                    Label("Home", systemImage: "house")
+                    Label("Home".localized, systemImage: "house")
                 }.tag(1)
             WatchListView(mainViewModel: viewModel, viewModel: watchListViewModel)
                 .tabItem {
-                    Label("Watchlist", systemImage: "eye")
+                    Label("Watchlist".localized, systemImage: "eye")
                 }.tag(2)
             SnapsListView(mainViewModel: viewModel, viewModel: snapsViewModel)
                 .tabItem {
-                    Label("Snaps", systemImage: "chart.bar")
+                    Label("Snaps".localized, systemImage: "chart.bar")
                 }.tag(3)
             NewsListView(viewModel: newsListScreenViewModel)
                 .tabItem {
-                    Label("News", systemImage: "book")
+                    Label("News".localized, systemImage: "book")
                 }.tag(4)
         }.tint(.green)
+            .toolbar {
+                ToolbarItem(placement: .principal) {
+                    HStack{
+                        Text("Smart Wallet".localized)
+                            .font(.headline)
+                            .foregroundColor(.green)
+                    }.frame(maxWidth: .infinity)
+                }
+            }
     }
     
 }

@@ -45,7 +45,7 @@ struct NewsDetailView: View {
                 
                 Divider()
                 
-                Text("Description")
+                Text("Description".localized)
                 Text(newsItem.description)
                     .font(.subheadline)
                     .foregroundColor(.gray)

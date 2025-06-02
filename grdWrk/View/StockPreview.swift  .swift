@@ -6,7 +6,7 @@ struct StockPreview: View {
     @StateObject var viewModel: StockPreviewViewModel
     @StateObject var watchlistViewModel: WatchListViewModel
     @State private var price = ""
-    @State private var selectedTimeframe: String = "1d"
+    @State private var selectedTimeframe: String = "1d".localized
     weak var coordinator: StockPreviewEventHandling?
     
     private var isValidPrice: Bool {
@@ -31,7 +31,7 @@ struct StockPreview: View {
   
                 Section{
                     HStack {
-                                        let timeframes = ["1d", "3mo", "6mo", "1y"]
+                        let timeframes = ["1d", "3mo", "6mo", "1y"]
                                         ForEach(timeframes, id: \.self) { timeframe in
                                             Button(action: {
                                                 selectedTimeframe = timeframe
@@ -60,21 +60,21 @@ struct StockPreview: View {
                 Section{
                     VStack{
                         HStack{
-                            Text("Volume").font(.headline)
+                            Text("Volume".localized).font(.headline)
                             Spacer()
                             VStack(alignment: .trailing){
                                 Text(String(viewModel.chartData.latestVolume ?? 0))
                             }
                         }.padding(8)
                         HStack{
-                            Text("average 30d").font(.headline)
+                            Text("average 30d".localized).font(.headline)
                             Spacer()
                             VStack(alignment: .trailing){
                                 Text(String(format: "%.2f", average.thirty ?? "unknown"))
                             }
                         }.padding(8)
                         HStack{
-                            Text("average 60d").font(.headline)
+                            Text("average 60d".localized).font(.headline)
                             Spacer()
                             VStack(alignment: .trailing){
                                 Text(String(format: "%.2f", average.sixty ?? "unknown"))
@@ -87,7 +87,7 @@ struct StockPreview: View {
                 }
                 
                 Section{
-                    TextField("Enter price", text: $price)
+                    TextField("Enter price".localized, text: $price)
                                 .keyboardType(.decimalPad)
                                 .padding(12)
                                 .background(
@@ -104,7 +104,7 @@ struct StockPreview: View {
                         viewModel.send(.addToSnapslistClick(stock,price))
                         dismiss()
                     }){
-                        Text("Buy")
+                        Text("Buy".localized)
                     }
                     .buttonStyle(.bottomButtonStyle)
                     .disabled(!isValidPrice)
@@ -117,7 +117,7 @@ struct StockPreview: View {
                             Button(action: {
                                 dismiss()
                             }){
-                                Text("Cancel").foregroundStyle(.green)
+                                Text("Cancel".localized).foregroundStyle(.green)
                             }
                         }
                         ToolbarItem(placement: .topBarTrailing){
@@ -128,7 +128,7 @@ struct StockPreview: View {
                                 viewModel.send(.addToWatchlistClick(stock))
                                 
                             }){
-                                Text(watchlistViewModel.isInWatchlist(stock: stock) ? "Unwatch" : "Watch").foregroundStyle(.green)
+                                Text(watchlistViewModel.isInWatchlist(stock: stock) ? "Unwatch".localized : "Watch".localized).foregroundStyle(.green)
                             }
                         }
                     }.onAppear(){

@@ -1,7 +1,7 @@
 import Foundation
 
 class StockPreviewViewModel: ObservableObject{
-    @Published var stockItem: StockItem? = StockItem(symbol: "", title: "", price: 1,percentChange: 0, ammount: 1)
+    @Published var stockItem: StockItem? = StockItem(symbol: "", title: "", price: 1, percentChange: 0, ammount: 1)
     @Published var chartData = ChartData(
         chart: ChartQuote(
             result: [
@@ -29,7 +29,7 @@ class StockPreviewViewModel: ObservableObject{
     
     init(apiManager: APIManaging, coordinator: StockPreviewEventHandling? = nil) {
         self.apiManager = apiManager
-        self.coordinator = coordinator 
+        self.coordinator = coordinator
     }
     
     func send(_ action: Action) {

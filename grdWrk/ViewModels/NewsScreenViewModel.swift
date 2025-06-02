@@ -1,5 +1,7 @@
 import Foundation
+
 class NewsScreenViewModel: ObservableObject{
+    
     private weak var coordinator: NewsListViewEventHandling?
     @Published var newsItems: [NewsItem] = []
     @Published var isLoading: Bool = true
@@ -48,18 +50,18 @@ extension NewsScreenViewModel{
                     NewsDataRouter.search
                 )
                 let newsItems = newsData.Data.map { query in
-                                    NewsItem(
-                                        title: query.title,
-                                        description: query.body,
-                                        imageUrl: query.imageurl
-                                    )
-                                }
+                    NewsItem(
+                        title: query.title,
+                        description: query.body,
+                        imageUrl: query.imageurl
+                    )
+                }
                 self.newsItems = newsItems
                 isLoading = false
             } catch {
                 print(error)
             }
-        
+            
         }
     }
 }

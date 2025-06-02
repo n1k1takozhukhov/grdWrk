@@ -47,7 +47,7 @@ class SnapsViewModel: ObservableObject{
             coordinator?.handle(event: .initBalance)
         }
     }
-
+    
 }
 
 @MainActor
@@ -99,29 +99,29 @@ extension SnapsViewModel{
     }
     
     @MainActor
-        func fetchSnapsList() {
-            Task {
-                do {
-                    var newSnapsList: [StockItem] = []
-                    for stockItem in snapsList{
-                        let chartData: ChartData = try await apiManager.request(
-                            StockDataRouter.chart(
-                                symbol: stockItem.symbol, timeframe: "1d"
-                            )
+    func fetchSnapsList() {
+        Task {
+            do {
+                var newSnapsList: [StockItem] = []
+                for stockItem in snapsList{
+                    let chartData: ChartData = try await apiManager.request(
+                        StockDataRouter.chart(
+                            symbol: stockItem.symbol, timeframe: "1d"
                         )
-                        let profit = (((chartData.latestPrice ?? 1) - (stockItem.priceWhenBought ?? 1)) / (stockItem.priceWhenBought ?? 1))
-                        newSnapsList.append(StockItem(symbol: stockItem.symbol, title: chartData.name, price: chartData.latestPrice ?? 0, percentChange: chartData.percentChange24Hours ?? 1,ammount: stockItem.ammount,priceWhenBought: stockItem.priceWhenBought, is_snaps: true,profit: profit))
-                    }
-                    snapsList = newSnapsList
-                } catch {
-                    print(error)
+                    )
+                    let profit = (((chartData.latestPrice ?? 1) - (stockItem.priceWhenBought ?? 1)) / (stockItem.priceWhenBought ?? 1))
+                    newSnapsList.append(StockItem(symbol: stockItem.symbol, title: chartData.name, price: chartData.latestPrice ?? 0, percentChange: chartData.percentChange24Hours ?? 1,ammount: stockItem.ammount,priceWhenBought: stockItem.priceWhenBought, is_snaps: true,profit: profit))
                 }
+                snapsList = newSnapsList
+            } catch {
+                print(error)
             }
         }
+    }
     
     func addStockToSnapsList(stock: StockItem) { //buy
-            balanceService.buyStock(stock: stock)
-            stockService.addNewStockItem(stockItem: stock)
+        balanceService.buyStock(stock: stock)
+        stockService.addNewStockItem(stockItem: stock)
     }
     func isInSnapslist(stock: StockItem) -> Bool{
         return snapsList.contains(where: { $0.symbol == stock.symbol && $0.is_snaps == true })

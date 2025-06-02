@@ -18,7 +18,7 @@ struct NewsListView: View {
     var body: some View {
         NavigationView {
             VStack(alignment: .leading) {
-                Text("News")
+                Text("News".localized)
                     .font(.title)
                     .fontWeight(.bold)
                     .foregroundColor(.primary)

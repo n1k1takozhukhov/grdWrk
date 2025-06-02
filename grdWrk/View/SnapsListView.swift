@@ -15,7 +15,7 @@ struct SnapsListView: View {
             ZStack{
                 VStack{
                     VStack{
-                        TextField("Search...", text: $searchText)
+                        TextField("Search...".localized, text: $searchText)
                             .padding(10)
                             .background(Color(.systemGray6))
                             .cornerRadius(8)
@@ -34,7 +34,7 @@ struct SnapsListView: View {
                     VStack{
                         HStack{
                             VStack(alignment: .leading){
-                                Text("Profit").font(.title)
+                                Text("Profit".localized).font(.title)
                             }
                             Spacer()
                             VStack(alignment: .trailing){
@@ -43,7 +43,7 @@ struct SnapsListView: View {
                             }
                         }.padding(8)
                         HStack{
-                            Text("Money to invest").font(.title2).foregroundStyle(.gray)
+                            Text("Money to invest".localized).font(.title2).foregroundStyle(.gray)
                             Spacer()
                             VStack(alignment: .trailing){
                                 Text("\(String(format: "%0.2f",balance.moneyToInvest))$").font(.title2).foregroundStyle(.gray)
@@ -56,48 +56,48 @@ struct SnapsListView: View {
                     
                     HStack{
                         Button(action: { showAddMoneyAlert = true }){
-                            Text("Add money")
+                            Text("Add money".localized)
                                 .foregroundStyle(.white)
                                 .padding()
                                 .frame(width: 180, height: 50)
                                 .background(Color.green)
                                 .cornerRadius(10)
-                        }.alert("Add Money Amount", isPresented: $showAddMoneyAlert, actions: {
-                            TextField("Enter amount of money:", text: $enteredAmount)
+                        }.alert("Add Money Amount".localized, isPresented: $showAddMoneyAlert, actions: {
+                            TextField("Enter amount of money".localized, text: $enteredAmount)
                                 .keyboardType(.decimalPad)
-                            Button("Add") {
+                            Button("Add".localized) {
                                 print("Added amount \(enteredAmount)")
-                                viewModel.send(.didTapAddBalance(Double(enteredAmount) ?? 5))
+                                viewModel.send(.didTapAddBalance(Double(enteredAmount) ?? 0))
                                 enteredAmount = ""
                             }
-                            Button("Cancel", role: .cancel) {
+                            Button("Cancel".localized, role: .cancel) {
                                 enteredAmount = ""
                             }
                         })
                         Spacer()
                         Button(action: { showAlert = true}){
-                            Text("Reset account")
+                            Text("Reset account".localized)
                                 .foregroundStyle(.white)
                                 .padding()
                                 .frame(width: 180, height: 50)
                                 .background(Color.red)
                                 .cornerRadius(10)
                         }.alert(
-                            "Are you sure you want to reset your account?",
+                            "Are you sure you want to reset your account?".localized,
                             isPresented: $showAlert
                         ) {
-                            Button("Delete", role: .destructive) {
+                            Button("Delete".localized, role: .destructive) {
                                 viewModel.send(.didTapReset)
                                 print("Account deleted")
                             }
-                            Button("Cancel", role: .cancel) {
+                            Button("Cancel".localized, role: .cancel) {
                                 print("Deletion canceled")
                             }
                         }
                     }.padding()
                     
                     HStack{
-                        Text("Snaps").font(.title)
+                        Text("Snaps".localized).font(.title)
                         Spacer()
                     }.padding()
                     
@@ -126,8 +126,8 @@ struct SnapsListView: View {
                                         Button(action: {
                                             viewModel.send(.didTapSell(stock))
                                         }){
-                                            Text("Sell")
-                                        }.buttonStyle(.dismissCrownButtonStyle)
+                                            Text("Sell".localized)
+                                        }.buttonStyle(.dismissButtonStyle)
                                     }
                                     
                                 }

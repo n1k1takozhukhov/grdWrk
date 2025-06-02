@@ -1,8 +1,8 @@
 import Foundation
 
 enum StockDataRouter: Endpoint {
-    case search(symbol: String) // Can be typed by user with mistakes
-    case chart(symbol: String, timeframe: String?) // Has to be correct
+    case search(symbol: String)
+    case chart(symbol: String, timeframe: String?)
     case info(symbol: String)
     
     var host: String {
@@ -19,7 +19,7 @@ enum StockDataRouter: Endpoint {
             return "/v1/finance/quoteType/\(symbol)"
         }
     }
-
+    
     var urlParameters: [String: Any] {
         switch self {
         case let .search(symbol):
@@ -27,7 +27,7 @@ enum StockDataRouter: Endpoint {
         case let .chart(_, timeframe):
             guard let timeframe = timeframe else { return [:] }
             
- 
+            
             var parameters: [String: Any] = [:]
             switch timeframe {
             case "1d", "5d":
@@ -40,7 +40,6 @@ enum StockDataRouter: Endpoint {
                 parameters["range"] = timeframe
                 parameters["interval"] = "1d"
             default:
-                // Don't add any parameter for other cases
                 break
             }
             return parameters

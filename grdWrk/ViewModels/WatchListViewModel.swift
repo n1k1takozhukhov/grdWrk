@@ -27,7 +27,7 @@ class WatchListViewModel: ObservableObject{
             coordinator?.handle(event: .fetchWatchlist)
         }
     }
-
+    
 }
 extension WatchListViewModel{
     enum Event{
@@ -66,22 +66,22 @@ extension WatchListViewModel{
     }
     
     @MainActor
-        func fetchWatchList() {
-            Task {
-                do {
-                    var newMarketList: [StockItem] = []
-                    for stockItem in watchList{
-                        let chartData: ChartData = try await apiManager.request(
-                            StockDataRouter.chart(
-                                symbol: stockItem.symbol, timeframe: "1d"
-                            )
+    func fetchWatchList() {
+        Task {
+            do {
+                var newMarketList: [StockItem] = []
+                for stockItem in watchList{
+                    let chartData: ChartData = try await apiManager.request(
+                        StockDataRouter.chart(
+                            symbol: stockItem.symbol, timeframe: "1d"
                         )
-                        newMarketList.append(StockItem(symbol: stockItem.symbol, title: chartData.name, price: chartData.latestPrice ?? 0, percentChange: chartData.percentChange24Hours ?? 1,ammount: 0,is_watchlist: true))
-                    }
-                    watchList = newMarketList
-                } catch {
-                    print(error)
+                    )
+                    newMarketList.append(StockItem(symbol: stockItem.symbol, title: chartData.name, price: chartData.latestPrice ?? 0, percentChange: chartData.percentChange24Hours ?? 1,ammount: 0,is_watchlist: true))
                 }
+                watchList = newMarketList
+            } catch {
+                print(error)
             }
         }
+    }
 }

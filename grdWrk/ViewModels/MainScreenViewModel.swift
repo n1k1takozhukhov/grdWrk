@@ -47,7 +47,7 @@ class MainScreenViewModel: ObservableObject{
         switch action {
         case .didTapStockPreview(let stockItem):
             coordinator?.handle(event: .detailStockPreview(stockItem))
-
+            
         case .didTapStock(let stock):
             coordinator?.handle(event: .fetchChart(stock.symbol))
         case .appear:
@@ -90,7 +90,7 @@ extension MainScreenViewModel {
         case didTapStock(StockItem)
         case appear
         case searchConfirmed(String)
-        case searchItemClicked //TODO: implement
+        case searchItemClicked
         case timeframeSelected(String, String)
         case searchTextChanged(String)
     }
@@ -119,39 +119,39 @@ extension MainScreenViewModel{ //YAHOO
     
     @MainActor
     func fetchChart(symbol: String, timeframe: String? = "1d") {
-            Task {
-                do {
-                    let chartData: ChartData = try await apiManager.request(
-                        StockDataRouter.chart(
-                            symbol: symbol, timeframe: timeframe
-                        )
+        Task {
+            do {
+                let chartData: ChartData = try await apiManager.request(
+                    StockDataRouter.chart(
+                        symbol: symbol, timeframe: timeframe
                     )
-                    self.chartData = chartData
-                } catch {
-                    print(error)
-                }
+                )
+                self.chartData = chartData
+            } catch {
+                print(error)
             }
         }
+    }
     
     @MainActor
-        func fetchMarketList() {
-            Task {
-                do {
-                    var newMarketList: [StockItem] = []
-                    for stockItem in marketList{
-                        let chartData: ChartData = try await apiManager.request(
-                            StockDataRouter.chart(
-                                symbol: stockItem.symbol, timeframe: "1d"
-                            )
+    func fetchMarketList() {
+        Task {
+            do {
+                var newMarketList: [StockItem] = []
+                for stockItem in marketList{
+                    let chartData: ChartData = try await apiManager.request(
+                        StockDataRouter.chart(
+                            symbol: stockItem.symbol, timeframe: "1d"
                         )
-                        newMarketList.append(StockItem(symbol: stockItem.symbol, title: chartData.name, price: chartData.latestPrice ?? 0, percentChange: chartData.percentChange24Hours ?? 1,ammount: 0))
-                    }
-                    marketList = newMarketList
-                } catch {
-                    print(error)
+                    )
+                    newMarketList.append(StockItem(symbol: stockItem.symbol, title: chartData.name, price: chartData.latestPrice ?? 0, percentChange: chartData.percentChange24Hours ?? 1,ammount: 0))
                 }
+                marketList = newMarketList
+            } catch {
+                print(error)
             }
         }
+    }
     
     @MainActor
     func getStockItemFromSymbol(symbol: String) async -> StockItem {
@@ -161,95 +161,13 @@ extension MainScreenViewModel{ //YAHOO
                     symbol: symbol, timeframe: "1d"
                 )
             )
-
+            
             let item = StockItem(symbol: chartData.symbol, title: chartData.name, price: chartData.latestPrice ?? 0,percentChange: chartData.percentChange24Hours, ammount: 0)
             return item
         } catch {
             print(error)
-            return StockItem(symbol: "error", title: "error", price: 0, ammount: 0) //TODO: no item  found
+            return StockItem(symbol: "error", title: "error", price: 0, ammount: 0)
         }
     }
     
-    
-    /*
-     for stockItem in marketList{
-         let searchData: SearchData = try await apiManager.request(
-             StockDataRouter.search(
-                 symbol: stockItem.title
-             )
-         )
-     }
-     */
-    /*
-    @MainActor
-    func fetchSearch(symbol: String) {
-
-        Task {
-            do {
-                let searchData: SearchData = try await apiManager.request(
-                    StockDataRouter.search(
-                        symbol: symbol
-                    )
-                )
-                self.testSearch = searchData.quotes[0].symbol //example
-                print(self.testSearch)
-
-
-            } catch {
-                print(error)
-            }
-        }
-    }
-    
-    @MainActor
-        func fetchInfo(symbol: String) {
-            Task {
-                do {
-                    let infoData: InfoData = try await apiManager.request(
-                        StockDataRouter.info(
-                            symbol: symbol
-                        )
-                    )
-                    self.testInfo = infoData.longName ?? "?" //example
-                    print(self.testInfo)
-                } catch {
-                    print(error)
-                }
-            }
-        }
 }
-
-extension MainScreenViewModel{ //NEWS
-    @MainActor
-        func fetchNews() {
-            Task {
-                do {
-                    let newsData: NewsData = try await apiManager.request(
-                        NewsDataRouter.search
-                    )
-                    self.testNews = newsData.Data[0].title //example title of first article
-                    print(self.testNews)
-                } catch {
-                    print(error)
-                }
-            }
-        }
-}
-
-extension MainScreenViewModel{ //MOVERS
-    @MainActor
-    func fetchMarketMovers(top: Int) {
-            Task {
-                do {
-                    let moversData: MoversData = try await apiManager.request(
-                        MoversDataRouter.search(top: top)
-                    )
-                    self.testMovers = String(moversData.gainers[0].percent_change) //example
-                    print(self.testMovers)
-                } catch {
-                    print(error)
-                }
-            }
-        } */
-}
-

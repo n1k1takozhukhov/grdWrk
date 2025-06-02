@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct DismissCrownButtonStyle: ButtonStyle {
+struct DismissButtonStyle: ButtonStyle {
 
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
@@ -24,10 +24,10 @@ struct TimeframeButtonStyle: ButtonStyle {
             .padding()
             .frame(width: 80, height: 40)
             .background(
-                isSelected ? Color.blue : Color.gray.opacity(0.2)
+                isSelected ? Color.green : Color.gray.opacity(0.2)
             )
             .foregroundColor(
-                isSelected ? .white : .blue
+                isSelected ? .white : .green
             )
             .cornerRadius(10)
             .opacity(configuration.isPressed ? 0.8 : 1)
@@ -56,8 +56,8 @@ extension ButtonStyle where Self == TimeframeButtonStyle {
     }
 }
 
-extension ButtonStyle where Self == DismissCrownButtonStyle {
-    static var dismissCrownButtonStyle: DismissCrownButtonStyle { DismissCrownButtonStyle() }
+extension ButtonStyle where Self == DismissButtonStyle {
+    static var dismissButtonStyle: DismissButtonStyle { DismissButtonStyle() }
 }
 
 extension ButtonStyle where Self == BottomButtonStyle {
@@ -70,7 +70,7 @@ extension ButtonStyle where Self == BottomButtonStyle {
         Button("Test"){
 
         }
-        .buttonStyle(.dismissCrownButtonStyle)
+        .buttonStyle(.dismissButtonStyle)
         
         Button("1M"){
 

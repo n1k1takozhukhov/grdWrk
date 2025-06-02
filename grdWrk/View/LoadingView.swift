@@ -5,7 +5,7 @@ struct LoadingView: View {
 
     var body: some View {
         
-        Image(systemName: "crown.fill")
+        Image(systemName: "clock.fill")
             .foregroundColor(.green)
             .font(.system(size: 80))
             .frame(width: 80, height: 80)
