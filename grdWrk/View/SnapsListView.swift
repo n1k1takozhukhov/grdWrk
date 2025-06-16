@@ -117,6 +117,7 @@ struct SnapsListView: View {
                                     Spacer()
                                     HStack{
                                         VStack(alignment: .trailing){
+//                                            Text("dsafas")
                                             Text("$\(String(format: "%.3f", calc1))")
                                                 .font(.headline)
                                             Text("\(String(format: "%.3f", (stock.profit ?? 1) * 100))%")

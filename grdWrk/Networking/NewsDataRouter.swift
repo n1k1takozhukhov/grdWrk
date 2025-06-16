@@ -4,8 +4,8 @@ enum NewsDataRouter: Endpoint {
     case search
     
     var host: String {
-            return "https://min-api.cryptocompare.com"
-        }
+        return "https://min-api.cryptocompare.com"
+    }
     
     var path: String {
         switch self {
@@ -13,7 +13,7 @@ enum NewsDataRouter: Endpoint {
             return "/data/v2/news/"
         }
     }
-
+    
     var urlParameters: [String: Any] {
         switch self {
         case .search:

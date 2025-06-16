@@ -14,18 +14,18 @@ protocol StockItemServicing {
 
 final class StockItemService: StockItemServicing {
     private let moc: NSManagedObjectContext
-
+    
     init(moc: NSManagedObjectContext) {
         self.moc = moc
         Task{
             //self.deleteAllStockItems()
         }
     }
-
+    
     func fetchStocks() -> [StockEntity] {
         let request = NSFetchRequest<StockEntity>(entityName: "StockEntity")
         var entities: [StockEntity] = []
-
+        
         do {
             entities = try moc.fetch(request)
         } catch {
@@ -113,18 +113,18 @@ final class StockItemService: StockItemServicing {
     }
     
     func deleteAllStockItems() {
-            let request = NSFetchRequest<StockEntity>(entityName: "StockEntity")
-            
-            do {
-                let results = try moc.fetch(request)
-                for entity in results {
-                    moc.delete(entity)
-                }
-                save()
-            } catch {
-                print("Error deleting all stock items: \(error)")
+        let request = NSFetchRequest<StockEntity>(entityName: "StockEntity")
+        
+        do {
+            let results = try moc.fetch(request)
+            for entity in results {
+                moc.delete(entity)
             }
+            save()
+        } catch {
+            print("Error deleting all stock items: \(error)")
         }
+    }
 }
 
 private extension StockItemService {

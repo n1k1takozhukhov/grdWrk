@@ -60,7 +60,7 @@ final class BalanceService: BalanceServicing {
         save()
     }
     
-
+    
     func sellStock(stock: StockItem){
         let balance = fetchBalance()
         balance.money_to_invest += (stock.ammount * stock.price)

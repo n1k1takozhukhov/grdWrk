@@ -12,7 +12,7 @@ struct WatchListView: View {
                 VStack{
                     
                     VStack{
-                        TextField("Search....".localized, text: $searchText)
+                        TextField("Search...".localized, text: $searchText)
                             .padding(10)
                             .background(Color(.systemGray6))
                             .cornerRadius(8)

@@ -135,7 +135,7 @@
 		71F33B3F2D2BE32700680699 /* ChartData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartData.swift; sourceTree = "<group>"; };
 		71F33B432D2BE37400680699 /* SearchData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchData.swift; sourceTree = "<group>"; };
 		71F33B452D2BE40700680699 /* NewsData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsData.swift; sourceTree = "<group>"; };
-		71F33B492D2BE4A800680699 /* NewsDataRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsDataRouter.swift; sourceTree = "<group>"; };
+		71F33B492D2BE4A800680699 /* NewsDataRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsDataRouter.swift; sourceTree = "<group>"; wrapsLines = 1; };
 		71F33B4D2D2BE7E900680699 /* NewsScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsScreenViewModel.swift; sourceTree = "<group>"; };
 		71F33B4F2D2C005500680699 /* StockChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockChartView.swift; sourceTree = "<group>"; };
 		71F33B512D2C07AD00680699 /* StockPreviewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockPreviewViewModel.swift; sourceTree = "<group>"; };
